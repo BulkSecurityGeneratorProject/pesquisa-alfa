@@ -62,13 +62,12 @@ server:
 
 jhipster:
     cache: # Hibernate 2nd level cache, used by CacheConfiguration
-        timeToLiveSeconds: 3600
         ehcache:
             maxBytesLocalHeap: 16M
     security:
         rememberMe:
             # security key (this key should be unique for your application, and kept secret)
-            key: 6f932ee7fec085cf08356bde55e36921994f0c52
+            key: ec89bf070d922df123e8f477878bb38f0d15fbcd
     mail: # specific JHipster mail property, for standard properties see MailProperties
         from: pesquisaalfa@localhost
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration

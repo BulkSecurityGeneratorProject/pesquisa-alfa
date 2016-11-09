@@ -30,6 +30,15 @@ public class Proposta implements Serializable {
     @Column(name = "tema", nullable = false)
     private String tema;
 
+    @OneToOne
+    @NotNull
+    @JoinColumn(unique = true)
+    private Aluno aluno;
+
+    @ManyToOne
+    @NotNull
+    private Orientador orientador;
+
     public Long getId() {
         return id;
     }
@@ -62,6 +71,32 @@ public class Proposta implements Serializable {
 
     public void setTema(String tema) {
         this.tema = tema;
+    }
+
+    public Aluno getAluno() {
+        return aluno;
+    }
+
+    public Proposta aluno(Aluno aluno) {
+        this.aluno = aluno;
+        return this;
+    }
+
+    public void setAluno(Aluno aluno) {
+        this.aluno = aluno;
+    }
+
+    public Orientador getOrientador() {
+        return orientador;
+    }
+
+    public Proposta orientador(Orientador orientador) {
+        this.orientador = orientador;
+        return this;
+    }
+
+    public void setOrientador(Orientador orientador) {
+        this.orientador = orientador;
     }
 
     @Override

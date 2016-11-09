@@ -4,6 +4,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -22,8 +23,9 @@ public class Gerente implements Serializable {
     private Long id;
 
     @OneToOne
+    @NotNull
     @JoinColumn(unique = true)
-    private Usuario nome;
+    private Usuario usuario;
 
     public Long getId() {
         return id;
@@ -33,17 +35,17 @@ public class Gerente implements Serializable {
         this.id = id;
     }
 
-    public Usuario getNome() {
-        return nome;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public Gerente nome(Usuario usuario) {
-        this.nome = usuario;
+    public Gerente usuario(Usuario usuario) {
+        this.usuario = usuario;
         return this;
     }
 
-    public void setNome(Usuario usuario) {
-        this.nome = usuario;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     @Override

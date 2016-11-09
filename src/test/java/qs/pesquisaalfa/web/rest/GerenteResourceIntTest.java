@@ -3,6 +3,7 @@ package qs.pesquisaalfa.web.rest;
 import qs.pesquisaalfa.PesquisaalfaApp;
 
 import qs.pesquisaalfa.domain.Gerente;
+import qs.pesquisaalfa.domain.Usuario;
 import qs.pesquisaalfa.repository.GerenteRepository;
 
 import org.junit.Before;
@@ -72,6 +73,11 @@ public class GerenteResourceIntTest {
      */
     public static Gerente createEntity(EntityManager em) {
         Gerente gerente = new Gerente();
+        // Add required entity
+        Usuario usuario = UsuarioResourceIntTest.createEntity(em);
+        em.persist(usuario);
+        em.flush();
+        gerente.setUsuario(usuario);
         return gerente;
     }
 

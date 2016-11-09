@@ -19,7 +19,7 @@
             <thead>
                 <tr>
                     <th><span>ID</span></th>
-                    <th><span>Nome</span></th>
+                    <th><span>Usuario</span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -27,7 +27,7 @@
                 <tr ng-repeat="gerente in vm.gerentes track by gerente.id">
                     <td><a ui-sref="gerente-detail({id:gerente.id})">{{gerente.id}}</a></td>
                     <td>
-                        <a ui-sref="usuario-detail({id:gerente.nome.id})">{{gerente.nome.id}}</a>
+                        <a ui-sref="usuario-detail({id:gerente.usuario.id})">{{gerente.usuario.id}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">

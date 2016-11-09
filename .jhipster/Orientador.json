@@ -1,0 +1,20 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "professor",
+            "otherEntityName": "professor",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "orientador"
+        }
+    ],
+    "fields": [],
+    "changelogDate": "20161031022448",
+    "entityTableName": "orientador",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

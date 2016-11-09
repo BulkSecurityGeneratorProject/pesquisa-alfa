@@ -1,0 +1,51 @@
+
+
+
+entity Professor{
+	departamento String required minlength(1)
+}
+
+entity Orientador{
+	
+}
+
+entity Aluno{
+	ehCandidato Boolean required,
+    dataMatricula LocalDate required,
+    DRE Integer required
+}
+
+entity Doutorando{
+	terminou1oPeriodo Boolean required
+}
+
+entity Mestrando{
+	terminouObrigatorias Boolean required
+}
+
+entity BancaAvaliacao{
+	dataHoraApresentacao ZonedDateTime
+}
+
+relationship OneToOne {
+	Professor{usuario required} to Usuario,
+	Aluno{usuario required} to Usuario,
+	Orientador{professor required} to Professor,
+    Mestrando{aluno required} to Aluno,
+    Doutorando{aluno required} to Aluno,
+    BancaAvaliacao{proposta required} to Proposta,
+    Proposta{aluno required} to Aluno
+}
+
+relationship ManyToOne{
+	Proposta{orientador required} to Orientador
+}
+
+relationship OneToMany{
+	BancaAvaliacao to Professor,
+	Orientador{orienta} to Aluno
+}
+
+relationship ManyToMany{
+	Professor{participa} to BancaAvaliacao{composta}
+}

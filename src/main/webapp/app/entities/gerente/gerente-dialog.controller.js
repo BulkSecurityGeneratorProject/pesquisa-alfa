@@ -13,14 +13,14 @@
         vm.gerente = entity;
         vm.clear = clear;
         vm.save = save;
-        vm.nomes = Usuario.query({filter: 'gerente-is-null'});
-        $q.all([vm.gerente.$promise, vm.nomes.$promise]).then(function() {
-            if (!vm.gerente.nome || !vm.gerente.nome.id) {
+        vm.usuarios = Usuario.query({filter: 'gerente-is-null'});
+        $q.all([vm.gerente.$promise, vm.usuarios.$promise]).then(function() {
+            if (!vm.gerente.usuario || !vm.gerente.usuario.id) {
                 return $q.reject();
             }
-            return Usuario.get({id : vm.gerente.nome.id}).$promise;
-        }).then(function(nome) {
-            vm.nomes.push(nome);
+            return Usuario.get({id : vm.gerente.usuario.id}).$promise;
+        }).then(function(usuario) {
+            vm.usuarios.push(usuario);
         });
 
         $timeout(function (){

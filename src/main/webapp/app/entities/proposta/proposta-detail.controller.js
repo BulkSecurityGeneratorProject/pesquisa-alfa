@@ -5,9 +5,9 @@
         .module('pesquisaalfaApp')
         .controller('PropostaDetailController', PropostaDetailController);
 
-    PropostaDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Proposta'];
+    PropostaDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Proposta', 'Aluno', 'Orientador'];
 
-    function PropostaDetailController($scope, $rootScope, $stateParams, previousState, entity, Proposta) {
+    function PropostaDetailController($scope, $rootScope, $stateParams, previousState, entity, Proposta, Aluno, Orientador) {
         var vm = this;
 
         vm.proposta = entity;

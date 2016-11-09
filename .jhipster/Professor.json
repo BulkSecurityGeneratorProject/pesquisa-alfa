@@ -1,0 +1,32 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "usuario",
+            "otherEntityName": "usuario",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "professor"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "bancasAvaliacao",
+            "otherEntityName": "bancaAvaliacao",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "professores"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "departamento",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20161031022446",
+    "entityTableName": "professor",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

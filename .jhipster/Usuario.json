@@ -9,7 +9,7 @@
                 "required",
                 "minlength"
             ],
-            "fieldValidateRulesMinlength": 1
+            "fieldValidateRulesMinlength": 3
         },
         {
             "fieldName": "email",
@@ -18,7 +18,7 @@
                 "required",
                 "minlength"
             ],
-            "fieldValidateRulesMinlength": 1
+            "fieldValidateRulesMinlength": 5
         },
         {
             "fieldName": "username",
@@ -27,7 +27,7 @@
                 "required",
                 "minlength"
             ],
-            "fieldValidateRulesMinlength": 1
+            "fieldValidateRulesMinlength": 3
         },
         {
             "fieldName": "senha",
@@ -36,10 +36,10 @@
                 "required",
                 "minlength"
             ],
-            "fieldValidateRulesMinlength": 3
+            "fieldValidateRulesMinlength": 5
         }
     ],
-    "changelogDate": "20161027222249",
+    "changelogDate": "20161031022444",
     "entityTableName": "usuario",
     "dto": "no",
     "pagination": "no",

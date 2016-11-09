@@ -45,7 +45,55 @@
         timeToLiveSeconds="3600">
     </cache>
 
+    <cache name="qs.pesquisaalfa.domain.Professor"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="qs.pesquisaalfa.domain.Professor.bancasAvaliacaos"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="qs.pesquisaalfa.domain.Aluno"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="qs.pesquisaalfa.domain.Aluno.artigos"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="qs.pesquisaalfa.domain.Orientador"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="qs.pesquisaalfa.domain.Doutorando"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="qs.pesquisaalfa.domain.Mestrando"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="qs.pesquisaalfa.domain.Artigo"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="qs.pesquisaalfa.domain.Artigo.alunos"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="qs.pesquisaalfa.domain.BancaAvaliacao"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="qs.pesquisaalfa.domain.BancaAvaliacao.professores"
+        timeToLiveSeconds="3600">
+    </cache>
+
     <cache name="qs.pesquisaalfa.domain.Proposta"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="qs.pesquisaalfa.domain.Tese"
         timeToLiveSeconds="3600">
     </cache>
 

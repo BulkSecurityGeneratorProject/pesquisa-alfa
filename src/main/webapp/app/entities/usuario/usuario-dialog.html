@@ -17,15 +17,15 @@
             <label class="control-label" for="field_nome">Nome</label>
             <input type="text" class="form-control" name="nome" id="field_nome"
                     ng-model="vm.usuario.nome"
-                    required ng-minlength="1" />
+                    required ng-minlength="3" />
             <div ng-show="editForm.nome.$invalid">
                 <p class="help-block"
                     ng-show="editForm.nome.$error.required">
                     This field is required.
                 </p>
                 <p class="help-block"
-                    ng-show="editForm.nome.$error.minlength" translate-value-min="1">
-                    This field is required to be at least 1 characters.
+                    ng-show="editForm.nome.$error.minlength" translate-value-min="3">
+                    This field is required to be at least 3 characters.
                 </p>
             </div>
         </div>
@@ -33,15 +33,15 @@
             <label class="control-label" for="field_email">Email</label>
             <input type="text" class="form-control" name="email" id="field_email"
                     ng-model="vm.usuario.email"
-                    required ng-minlength="1" />
+                    required ng-minlength="5" />
             <div ng-show="editForm.email.$invalid">
                 <p class="help-block"
                     ng-show="editForm.email.$error.required">
                     This field is required.
                 </p>
                 <p class="help-block"
-                    ng-show="editForm.email.$error.minlength" translate-value-min="1">
-                    This field is required to be at least 1 characters.
+                    ng-show="editForm.email.$error.minlength" translate-value-min="5">
+                    This field is required to be at least 5 characters.
                 </p>
             </div>
         </div>
@@ -49,15 +49,15 @@
             <label class="control-label" for="field_username">Username</label>
             <input type="text" class="form-control" name="username" id="field_username"
                     ng-model="vm.usuario.username"
-                    required ng-minlength="1" />
+                    required ng-minlength="3" />
             <div ng-show="editForm.username.$invalid">
                 <p class="help-block"
                     ng-show="editForm.username.$error.required">
                     This field is required.
                 </p>
                 <p class="help-block"
-                    ng-show="editForm.username.$error.minlength" translate-value-min="1">
-                    This field is required to be at least 1 characters.
+                    ng-show="editForm.username.$error.minlength" translate-value-min="3">
+                    This field is required to be at least 3 characters.
                 </p>
             </div>
         </div>
@@ -65,15 +65,15 @@
             <label class="control-label" for="field_senha">Senha</label>
             <input type="text" class="form-control" name="senha" id="field_senha"
                     ng-model="vm.usuario.senha"
-                    required ng-minlength="3" />
+                    required ng-minlength="5" />
             <div ng-show="editForm.senha.$invalid">
                 <p class="help-block"
                     ng-show="editForm.senha.$error.required">
                     This field is required.
                 </p>
                 <p class="help-block"
-                    ng-show="editForm.senha.$error.minlength" translate-value-min="3">
-                    This field is required to be at least 3 characters.
+                    ng-show="editForm.senha.$error.minlength" translate-value-min="5">
+                    This field is required to be at least 5 characters.
                 </p>
             </div>
         </div>

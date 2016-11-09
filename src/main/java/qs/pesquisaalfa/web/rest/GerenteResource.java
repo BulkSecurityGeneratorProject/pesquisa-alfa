@@ -9,11 +9,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -38,11 +38,9 @@ public class GerenteResource {
      * @return the ResponseEntity with status 201 (Created) and with body the new gerente, or with status 400 (Bad Request) if the gerente has already an ID
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
-    @RequestMapping(value = "/gerentes",
-        method = RequestMethod.POST,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping("/gerentes")
     @Timed
-    public ResponseEntity<Gerente> createGerente(@RequestBody Gerente gerente) throws URISyntaxException {
+    public ResponseEntity<Gerente> createGerente(@Valid @RequestBody Gerente gerente) throws URISyntaxException {
         log.debug("REST request to save Gerente : {}", gerente);
         if (gerente.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("gerente", "idexists", "A new gerente cannot already have an ID")).body(null);
@@ -62,11 +60,9 @@ public class GerenteResource {
      * or with status 500 (Internal Server Error) if the gerente couldnt be updated
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
-    @RequestMapping(value = "/gerentes",
-        method = RequestMethod.PUT,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping("/gerentes")
     @Timed
-    public ResponseEntity<Gerente> updateGerente(@RequestBody Gerente gerente) throws URISyntaxException {
+    public ResponseEntity<Gerente> updateGerente(@Valid @RequestBody Gerente gerente) throws URISyntaxException {
         log.debug("REST request to update Gerente : {}", gerente);
         if (gerente.getId() == null) {
             return createGerente(gerente);
@@ -82,9 +78,7 @@ public class GerenteResource {
      *
      * @return the ResponseEntity with status 200 (OK) and the list of gerentes in body
      */
-    @RequestMapping(value = "/gerentes",
-        method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping("/gerentes")
     @Timed
     public List<Gerente> getAllGerentes() {
         log.debug("REST request to get all Gerentes");
@@ -98,9 +92,7 @@ public class GerenteResource {
      * @param id the id of the gerente to retrieve
      * @return the ResponseEntity with status 200 (OK) and with body the gerente, or with status 404 (Not Found)
      */
-    @RequestMapping(value = "/gerentes/{id}",
-        method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping("/gerentes/{id}")
     @Timed
     public ResponseEntity<Gerente> getGerente(@PathVariable Long id) {
         log.debug("REST request to get Gerente : {}", id);
@@ -118,9 +110,7 @@ public class GerenteResource {
      * @param id the id of the gerente to delete
      * @return the ResponseEntity with status 200 (OK)
      */
-    @RequestMapping(value = "/gerentes/{id}",
-        method = RequestMethod.DELETE,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping("/gerentes/{id}")
     @Timed
     public ResponseEntity<Void> deleteGerente(@PathVariable Long id) {
         log.debug("REST request to delete Gerente : {}", id);

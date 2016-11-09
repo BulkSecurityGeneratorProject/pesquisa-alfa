@@ -3,7 +3,8 @@
     "relationships": [
         {
             "relationshipType": "one-to-one",
-            "relationshipName": "nome",
+            "relationshipValidateRules": "required",
+            "relationshipName": "usuario",
             "otherEntityName": "usuario",
             "otherEntityField": "id",
             "ownerSide": true,
@@ -11,7 +12,7 @@
         }
     ],
     "fields": [],
-    "changelogDate": "20161027222250",
+    "changelogDate": "20161031022445",
     "entityTableName": "gerente",
     "dto": "no",
     "pagination": "no",

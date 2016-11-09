@@ -38,17 +38,17 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = PesquisaalfaApp.class)
 public class UsuarioResourceIntTest {
 
-    private static final String DEFAULT_NOME = "A";
-    private static final String UPDATED_NOME = "B";
+    private static final String DEFAULT_NOME = "AAA";
+    private static final String UPDATED_NOME = "BBB";
 
-    private static final String DEFAULT_EMAIL = "A";
-    private static final String UPDATED_EMAIL = "B";
+    private static final String DEFAULT_EMAIL = "AAAAA";
+    private static final String UPDATED_EMAIL = "BBBBB";
 
-    private static final String DEFAULT_USERNAME = "A";
-    private static final String UPDATED_USERNAME = "B";
+    private static final String DEFAULT_USERNAME = "AAA";
+    private static final String UPDATED_USERNAME = "BBB";
 
-    private static final String DEFAULT_SENHA = "AAA";
-    private static final String UPDATED_SENHA = "BBB";
+    private static final String DEFAULT_SENHA = "AAAAA";
+    private static final String UPDATED_SENHA = "BBBBB";
 
     @Inject
     private UsuarioRepository usuarioRepository;

@@ -1,0 +1,52 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "usuario",
+            "otherEntityName": "usuario",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "aluno"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "orientador",
+            "otherEntityName": "orientador",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "artigo",
+            "otherEntityName": "artigo",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "alunos"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "dre",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "dataMatricula",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "ehCandidato",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20161031022447",
+    "entityTableName": "aluno",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

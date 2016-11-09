@@ -1,6 +1,23 @@
 {
     "fluentMethods": true,
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "aluno",
+            "otherEntityName": "aluno",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "proposta"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "orientador",
+            "otherEntityName": "orientador",
+            "otherEntityField": "id"
+        }
+    ],
     "fields": [
         {
             "fieldName": "propostaAceita",
@@ -17,7 +34,7 @@
             ]
         }
     ],
-    "changelogDate": "20161027222251",
+    "changelogDate": "20161031022453",
     "entityTableName": "proposta",
     "dto": "no",
     "pagination": "no",

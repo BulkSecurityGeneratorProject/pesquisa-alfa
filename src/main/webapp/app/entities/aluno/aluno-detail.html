@@ -1,0 +1,39 @@
+
+<div>
+    <h2><span>Aluno</span> {{vm.aluno.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Dre</span></dt>
+        <dd>
+            <span>{{vm.aluno.dre}}</span>
+        </dd>
+        <dt><span>Data Matricula</span></dt>
+        <dd>
+            <span>{{vm.aluno.dataMatricula | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Eh Candidato</span></dt>
+        <dd>
+            <span>{{vm.aluno.ehCandidato}}</span>
+        </dd>
+        <dt><span>Usuario</span></dt>
+        <dd>
+            <a ui-sref="usuario-detail({id:vm.aluno.usuario.id})">{{vm.aluno.usuario.id}}</a>
+        </dd>
+        <dt><span>Orientador</span></dt>
+        <dd>
+            <a ui-sref="orientador-detail({id:vm.aluno.orientador.id})">{{vm.aluno.orientador.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="aluno-detail.edit({id:vm.aluno.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,62 @@
+<div>
+    <h2>Tese</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="tese.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Tese
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>Conceito Medio Pesquisa</span></th>
+                    <th><span>Tese Aprovada</span></th>
+                    <th><span>Proposta</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="tese in vm.tese track by tese.id">
+                    <td><a ui-sref="tese-detail({id:tese.id})">{{tese.id}}</a></td>
+                    <td>{{tese.conceitoMedioPesquisa}}</td>
+                    <td>{{tese.teseAprovada}}</td>
+                    <td>
+                        <a ui-sref="proposta-detail({id:tese.proposta.id})">{{tese.proposta.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="tese-detail({id:tese.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="tese.edit({id:tese.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="tese.delete({id:tese.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

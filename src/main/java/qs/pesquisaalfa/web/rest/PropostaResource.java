@@ -9,7 +9,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,9 +38,7 @@ public class PropostaResource {
      * @return the ResponseEntity with status 201 (Created) and with body the new proposta, or with status 400 (Bad Request) if the proposta has already an ID
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
-    @RequestMapping(value = "/propostas",
-        method = RequestMethod.POST,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping("/propostas")
     @Timed
     public ResponseEntity<Proposta> createProposta(@Valid @RequestBody Proposta proposta) throws URISyntaxException {
         log.debug("REST request to save Proposta : {}", proposta);
@@ -63,9 +60,7 @@ public class PropostaResource {
      * or with status 500 (Internal Server Error) if the proposta couldnt be updated
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
-    @RequestMapping(value = "/propostas",
-        method = RequestMethod.PUT,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping("/propostas")
     @Timed
     public ResponseEntity<Proposta> updateProposta(@Valid @RequestBody Proposta proposta) throws URISyntaxException {
         log.debug("REST request to update Proposta : {}", proposta);
@@ -83,9 +78,7 @@ public class PropostaResource {
      *
      * @return the ResponseEntity with status 200 (OK) and the list of propostas in body
      */
-    @RequestMapping(value = "/propostas",
-        method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping("/propostas")
     @Timed
     public List<Proposta> getAllPropostas() {
         log.debug("REST request to get all Propostas");
@@ -99,9 +92,7 @@ public class PropostaResource {
      * @param id the id of the proposta to retrieve
      * @return the ResponseEntity with status 200 (OK) and with body the proposta, or with status 404 (Not Found)
      */
-    @RequestMapping(value = "/propostas/{id}",
-        method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping("/propostas/{id}")
     @Timed
     public ResponseEntity<Proposta> getProposta(@PathVariable Long id) {
         log.debug("REST request to get Proposta : {}", id);
@@ -119,9 +110,7 @@ public class PropostaResource {
      * @param id the id of the proposta to delete
      * @return the ResponseEntity with status 200 (OK)
      */
-    @RequestMapping(value = "/propostas/{id}",
-        method = RequestMethod.DELETE,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping("/propostas/{id}")
     @Timed
     public ResponseEntity<Void> deleteProposta(@PathVariable Long id) {
         log.debug("REST request to delete Proposta : {}", id);

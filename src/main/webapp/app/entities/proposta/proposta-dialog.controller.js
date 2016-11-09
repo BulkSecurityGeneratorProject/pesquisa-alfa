@@ -5,14 +5,24 @@
         .module('pesquisaalfaApp')
         .controller('PropostaDialogController', PropostaDialogController);
 
-    PropostaDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Proposta'];
+    PropostaDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'Proposta', 'Aluno', 'Orientador'];
 
-    function PropostaDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Proposta) {
+    function PropostaDialogController ($timeout, $scope, $stateParams, $uibModalInstance, $q, entity, Proposta, Aluno, Orientador) {
         var vm = this;
 
         vm.proposta = entity;
         vm.clear = clear;
         vm.save = save;
+        vm.alunos = Aluno.query({filter: 'proposta-is-null'});
+        $q.all([vm.proposta.$promise, vm.alunos.$promise]).then(function() {
+            if (!vm.proposta.aluno || !vm.proposta.aluno.id) {
+                return $q.reject();
+            }
+            return Aluno.get({id : vm.proposta.aluno.id}).$promise;
+        }).then(function(aluno) {
+            vm.alunos.push(aluno);
+        });
+        vm.orientadors = Orientador.query();
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();

@@ -21,6 +21,8 @@
                     <th><span>ID</span></th>
                     <th><span>Proposta Aceita</span></th>
                     <th><span>Tema</span></th>
+                    <th><span>Aluno</span></th>
+                    <th><span>Orientador</span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -29,6 +31,12 @@
                     <td><a ui-sref="proposta-detail({id:proposta.id})">{{proposta.id}}</a></td>
                     <td>{{proposta.propostaAceita}}</td>
                     <td>{{proposta.tema}}</td>
+                    <td>
+                        <a ui-sref="aluno-detail({id:proposta.aluno.id})">{{proposta.aluno.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="orientador-detail({id:proposta.orientador.id})">{{proposta.orientador.id}}</a>
+                    </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

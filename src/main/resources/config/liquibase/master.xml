@@ -5,10 +5,27 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
     <include file="classpath:config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20161027222249_added_entity_Usuario.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20161027222250_added_entity_Gerente.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20161027222251_added_entity_Proposta.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161031022444_added_entity_Usuario.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161031022445_added_entity_Gerente.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161031022446_added_entity_Professor.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161031022447_added_entity_Aluno.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161031022448_added_entity_Orientador.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161031022449_added_entity_Doutorando.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161031022450_added_entity_Mestrando.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161031022451_added_entity_Artigo.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161031022452_added_entity_BancaAvaliacao.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161031022453_added_entity_Proposta.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161031022454_added_entity_Tese.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
-    <include file="classpath:config/liquibase/changelog/20161027222250_added_entity_constraints_Gerente.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161031022445_added_entity_constraints_Gerente.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161031022446_added_entity_constraints_Professor.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161031022447_added_entity_constraints_Aluno.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161031022448_added_entity_constraints_Orientador.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161031022449_added_entity_constraints_Doutorando.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161031022450_added_entity_constraints_Mestrando.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161031022451_added_entity_constraints_Artigo.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161031022452_added_entity_constraints_BancaAvaliacao.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161031022453_added_entity_constraints_Proposta.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161031022454_added_entity_constraints_Tese.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

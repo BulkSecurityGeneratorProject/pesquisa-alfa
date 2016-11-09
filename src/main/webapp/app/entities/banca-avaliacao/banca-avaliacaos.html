@@ -1,0 +1,66 @@
+<div>
+    <h2>Banca Avaliacaos</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="banca-avaliacao.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Banca Avaliacao
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>Data Hora Apresentacao</span></th>
+                    <th><span>Proposta</span></th>
+                    <th><span>Professores</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="bancaAvaliacao in vm.bancaAvaliacaos track by bancaAvaliacao.id">
+                    <td><a ui-sref="banca-avaliacao-detail({id:bancaAvaliacao.id})">{{bancaAvaliacao.id}}</a></td>
+                    <td>{{bancaAvaliacao.dataHoraApresentacao | date:'medium'}}</td>
+                    <td>
+                        <a ui-sref="proposta-detail({id:bancaAvaliacao.proposta.id})">{{bancaAvaliacao.proposta.id}}</a>
+                    </td>
+                    <td>
+                        <span ng-repeat="professores in bancaAvaliacao.professores">
+                            <a class="form-control-static" ui-sref="professor-detail({id: professores.id})">{{professores.id}}</a>{{$last ? '' : ', '}}
+                        </span>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="banca-avaliacao-detail({id:bancaAvaliacao.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="banca-avaliacao.edit({id:bancaAvaliacao.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="banca-avaliacao.delete({id:bancaAvaliacao.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

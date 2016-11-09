@@ -1,0 +1,33 @@
+
+<div>
+    <h2><span>Banca Avaliacao</span> {{vm.bancaAvaliacao.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Data Hora Apresentacao</span></dt>
+        <dd>
+            <span>{{vm.bancaAvaliacao.dataHoraApresentacao | date:'medium'}}</span>
+        </dd>
+        <dt><span>Proposta</span></dt>
+        <dd>
+            <a ui-sref="proposta-detail({id:vm.bancaAvaliacao.proposta.id})">{{vm.bancaAvaliacao.proposta.id}}</a>
+        </dd>
+        <dt><span>Professores</span></dt>
+        <dd>
+            <span ng-repeat="professores in vm.bancaAvaliacao.professores">
+                <a ui-sref="professor-detail({id: professores.id})">{{professores.id}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="banca-avaliacao-detail.edit({id:vm.bancaAvaliacao.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

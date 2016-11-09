@@ -1,0 +1,26 @@
+entity Artigo {
+	titulo String required minlength(3),
+	dataApresentacao LocalDate required
+}
+
+enum Conceito {
+	A, B, C, D, X
+}
+
+entity Tese {
+	conceitoMedioPesquisa Conceito required,
+    teseAprovada Boolean required
+}
+
+
+entity Aluno{
+       //PREECHER, ADIANTEI A DECLARACAO POR CAUSA DO RELACIONAMENTO COM Artigo
+}
+
+relationship OneToOne {
+	Tese{proposta required} to Proposta
+}
+
+relationship ManyToMany {
+	Artigo{aluno required} to Aluno{artigo}
+}

@@ -3,6 +3,8 @@ package qs.pesquisaalfa.web.rest;
 import qs.pesquisaalfa.PesquisaalfaApp;
 
 import qs.pesquisaalfa.domain.Proposta;
+import qs.pesquisaalfa.domain.Aluno;
+import qs.pesquisaalfa.domain.Orientador;
 import qs.pesquisaalfa.repository.PropostaRepository;
 
 import org.junit.Before;
@@ -80,6 +82,16 @@ public class PropostaResourceIntTest {
         Proposta proposta = new Proposta()
                 .propostaAceita(DEFAULT_PROPOSTA_ACEITA)
                 .tema(DEFAULT_TEMA);
+        // Add required entity
+        Aluno aluno = AlunoResourceIntTest.createEntity(em);
+        em.persist(aluno);
+        em.flush();
+        proposta.setAluno(aluno);
+        // Add required entity
+        Orientador orientador = OrientadorResourceIntTest.createEntity(em);
+        em.persist(orientador);
+        em.flush();
+        proposta.setOrientador(orientador);
         return proposta;
     }
 

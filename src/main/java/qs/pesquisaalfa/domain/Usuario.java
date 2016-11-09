@@ -23,22 +23,22 @@ public class Usuario implements Serializable {
     private Long id;
 
     @NotNull
-    @Size(min = 1)
+    @Size(min = 3)
     @Column(name = "nome", nullable = false)
     private String nome;
 
     @NotNull
-    @Size(min = 1)
+    @Size(min = 5)
     @Column(name = "email", nullable = false)
     private String email;
 
     @NotNull
-    @Size(min = 1)
+    @Size(min = 3)
     @Column(name = "username", nullable = false)
     private String username;
 
     @NotNull
-    @Size(min = 3)
+    @Size(min = 5)
     @Column(name = "senha", nullable = false)
     private String senha;
 

@@ -1,0 +1,33 @@
+
+<div>
+    <h2><span>Artigo</span> {{vm.artigo.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Titulo</span></dt>
+        <dd>
+            <span>{{vm.artigo.titulo}}</span>
+        </dd>
+        <dt><span>Data Apresentacao</span></dt>
+        <dd>
+            <span>{{vm.artigo.dataApresentacao | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Alunos</span></dt>
+        <dd>
+            <span ng-repeat="alunos in vm.artigo.alunos">
+                <a ui-sref="aluno-detail({id: alunos.id})">{{alunos.id}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="artigo-detail.edit({id:vm.artigo.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>
