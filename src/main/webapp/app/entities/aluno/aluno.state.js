@@ -14,7 +14,7 @@
             url: '/aluno',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'Alunos'
+                pageTitle: 'pesquisaalfaApp.aluno.home.title'
             },
             views: {
                 'content@': {
@@ -24,6 +24,11 @@
                 }
             },
             resolve: {
+                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                    $translatePartialLoader.addPart('aluno');
+                    $translatePartialLoader.addPart('global');
+                    return $translate.refresh();
+                }]
             }
         })
         .state('aluno-detail', {
@@ -31,7 +36,7 @@
             url: '/aluno/{id}',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'Aluno'
+                pageTitle: 'pesquisaalfaApp.aluno.detail.title'
             },
             views: {
                 'content@': {
@@ -41,6 +46,10 @@
                 }
             },
             resolve: {
+                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                    $translatePartialLoader.addPart('aluno');
+                    return $translate.refresh();
+                }],
                 entity: ['$stateParams', 'Aluno', function($stateParams, Aluno) {
                     return Aluno.get({id : $stateParams.id}).$promise;
                 }],

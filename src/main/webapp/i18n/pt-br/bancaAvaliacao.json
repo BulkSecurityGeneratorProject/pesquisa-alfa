@@ -1,0 +1,25 @@
+{
+    "pesquisaalfaApp": {
+        "bancaAvaliacao" : {
+            "home": {
+                "title": "Banca Avaliacaos",
+                "createLabel": "Criar novo Banca Avaliacao",
+                "createOrEditLabel": "Criar ou editar Banca Avaliacao",
+                "search": "Pesquisar por Banca Avaliacao"
+            },
+            "created": "Um novo Banca Avaliacao é criado com o identificador {{ param }}",
+            "updated": "Um Banca Avaliacao é atualizado com o identificador {{ param }}",
+            "deleted": "Um Banca Avaliacao é deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Banca Avaliacao {{ id }}?"
+            },
+            "detail": {
+                "title": "Banca Avaliacao"
+            },
+            "dataHoraApresentacao": "Data Hora Apresentacao",
+            "tipoAvaliacao": "Tipo Avaliacao",
+            "proposta": "Proposta",
+            "professores": "Professores"
+        }
+    }
+}

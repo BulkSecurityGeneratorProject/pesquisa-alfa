@@ -1,14 +1,14 @@
 
 <div>
-    <h2><span>Doutorando</span> {{vm.doutorando.id}}</h2>
+    <h2><span data-translate="pesquisaalfaApp.doutorando.detail.title">Doutorando</span> {{vm.doutorando.id}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="dl-horizontal jh-entity-details">
-        <dt><span>Terminou 1 O Periodo</span></dt>
+        <dt><span data-translate="pesquisaalfaApp.doutorando.terminou1OPeriodo">Terminou 1 O Periodo</span></dt>
         <dd>
             <span>{{vm.doutorando.terminou1OPeriodo}}</span>
         </dd>
-        <dt><span>Aluno</span></dt>
+        <dt><span data-translate="pesquisaalfaApp.doutorando.aluno">Aluno</span></dt>
         <dd>
             <a ui-sref="aluno-detail({id:vm.doutorando.aluno.id})">{{vm.doutorando.aluno.id}}</a>
         </dd>
@@ -17,11 +17,11 @@
     <button type="submit"
             ui-sref="{{ vm.previousState }}"
             class="btn btn-info">
-        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
     </button>
 
     <button type="button" ui-sref="doutorando-detail.edit({id:vm.doutorando.id})" class="btn btn-primary">
         <span class="glyphicon glyphicon-pencil"></span>
-        <span class="hidden-xs hidden-sm"> Edit</span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
     </button>
 </div>

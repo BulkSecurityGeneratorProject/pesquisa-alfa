@@ -22,21 +22,21 @@ public final class HeaderUtil {
     }
 
     public static HttpHeaders createEntityCreationAlert(String entityName, String param) {
-        return createAlert("A new " + entityName + " is created with identifier " + param, param);
+        return createAlert("pesquisaalfaApp." + entityName + ".created", param);
     }
 
     public static HttpHeaders createEntityUpdateAlert(String entityName, String param) {
-        return createAlert("A " + entityName + " is updated with identifier " + param, param);
+        return createAlert("pesquisaalfaApp." + entityName + ".updated", param);
     }
 
     public static HttpHeaders createEntityDeletionAlert(String entityName, String param) {
-        return createAlert("A " + entityName + " is deleted with identifier " + param, param);
+        return createAlert("pesquisaalfaApp." + entityName + ".deleted", param);
     }
 
     public static HttpHeaders createFailureAlert(String entityName, String errorKey, String defaultMessage) {
         log.error("Entity creation failed, {}", defaultMessage);
         HttpHeaders headers = new HttpHeaders();
-        headers.add("X-pesquisaalfaApp-error", defaultMessage);
+        headers.add("X-pesquisaalfaApp-error", "error." + errorKey);
         headers.add("X-pesquisaalfaApp-params", entityName);
         return headers;
     }

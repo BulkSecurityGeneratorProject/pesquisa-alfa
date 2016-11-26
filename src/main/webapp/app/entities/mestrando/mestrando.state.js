@@ -14,7 +14,7 @@
             url: '/mestrando',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'Mestrandos'
+                pageTitle: 'pesquisaalfaApp.mestrando.home.title'
             },
             views: {
                 'content@': {
@@ -24,6 +24,11 @@
                 }
             },
             resolve: {
+                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                    $translatePartialLoader.addPart('mestrando');
+                    $translatePartialLoader.addPart('global');
+                    return $translate.refresh();
+                }]
             }
         })
         .state('mestrando-detail', {
@@ -31,7 +36,7 @@
             url: '/mestrando/{id}',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'Mestrando'
+                pageTitle: 'pesquisaalfaApp.mestrando.detail.title'
             },
             views: {
                 'content@': {
@@ -41,6 +46,10 @@
                 }
             },
             resolve: {
+                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                    $translatePartialLoader.addPart('mestrando');
+                    return $translate.refresh();
+                }],
                 entity: ['$stateParams', 'Mestrando', function($stateParams, Mestrando) {
                     return Mestrando.get({id : $stateParams.id}).$promise;
                 }],

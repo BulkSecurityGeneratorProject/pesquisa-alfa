@@ -1,0 +1,9 @@
+{
+    "pesquisaalfaApp": {
+        "TiposAvaliacao" : {
+            "null": "",
+            "PROPOSTA": "PROPOSTA",
+            "TESE": "TESE"
+        }
+    }
+}

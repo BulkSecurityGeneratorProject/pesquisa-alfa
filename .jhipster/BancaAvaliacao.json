@@ -27,9 +27,17 @@
             "fieldValidateRules": [
                 "required"
             ]
+        },
+        {
+            "fieldName": "tipoAvaliacao",
+            "fieldType": "TiposAvaliacao",
+            "fieldValues": "PROPOSTA,TESE",
+            "fieldValidateRules": [
+                "required"
+            ]
         }
     ],
-    "changelogDate": "20161031022452",
+    "changelogDate": "20161126181642",
     "entityTableName": "banca_avaliacao",
     "dto": "no",
     "pagination": "no",

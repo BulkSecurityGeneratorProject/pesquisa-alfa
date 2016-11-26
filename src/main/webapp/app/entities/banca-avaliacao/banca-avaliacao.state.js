@@ -14,7 +14,7 @@
             url: '/banca-avaliacao',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'BancaAvaliacaos'
+                pageTitle: 'pesquisaalfaApp.bancaAvaliacao.home.title'
             },
             views: {
                 'content@': {
@@ -24,6 +24,12 @@
                 }
             },
             resolve: {
+                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                    $translatePartialLoader.addPart('bancaAvaliacao');
+                    $translatePartialLoader.addPart('tiposAvaliacao');
+                    $translatePartialLoader.addPart('global');
+                    return $translate.refresh();
+                }]
             }
         })
         .state('banca-avaliacao-detail', {
@@ -31,7 +37,7 @@
             url: '/banca-avaliacao/{id}',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'BancaAvaliacao'
+                pageTitle: 'pesquisaalfaApp.bancaAvaliacao.detail.title'
             },
             views: {
                 'content@': {
@@ -41,6 +47,11 @@
                 }
             },
             resolve: {
+                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                    $translatePartialLoader.addPart('bancaAvaliacao');
+                    $translatePartialLoader.addPart('tiposAvaliacao');
+                    return $translate.refresh();
+                }],
                 entity: ['$stateParams', 'BancaAvaliacao', function($stateParams, BancaAvaliacao) {
                     return BancaAvaliacao.get({id : $stateParams.id}).$promise;
                 }],
@@ -96,6 +107,7 @@
                         entity: function () {
                             return {
                                 dataHoraApresentacao: null,
+                                tipoAvaliacao: null,
                                 id: null
                             };
                         }

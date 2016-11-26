@@ -27,6 +27,10 @@
             ]
         },
         {
+            "fieldName": "teseAceita",
+            "fieldType": "Boolean"
+        },
+        {
             "fieldName": "tema",
             "fieldType": "String",
             "fieldValidateRules": [
@@ -34,7 +38,7 @@
             ]
         }
     ],
-    "changelogDate": "20161031022453",
+    "changelogDate": "20161126181643",
     "entityTableName": "proposta",
     "dto": "no",
     "pagination": "no",

@@ -35,6 +35,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+import qs.pesquisaalfa.domain.enumeration.TiposAvaliacao;
 /**
  * Test class for the BancaAvaliacaoResource REST controller.
  *
@@ -47,6 +48,9 @@ public class BancaAvaliacaoResourceIntTest {
     private static final ZonedDateTime DEFAULT_DATA_HORA_APRESENTACAO = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneId.systemDefault());
     private static final ZonedDateTime UPDATED_DATA_HORA_APRESENTACAO = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
     private static final String DEFAULT_DATA_HORA_APRESENTACAO_STR = DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(DEFAULT_DATA_HORA_APRESENTACAO);
+
+    private static final TiposAvaliacao DEFAULT_TIPO_AVALIACAO = TiposAvaliacao.PROPOSTA;
+    private static final TiposAvaliacao UPDATED_TIPO_AVALIACAO = TiposAvaliacao.TESE;
 
     @Inject
     private BancaAvaliacaoRepository bancaAvaliacaoRepository;
@@ -82,7 +86,8 @@ public class BancaAvaliacaoResourceIntTest {
      */
     public static BancaAvaliacao createEntity(EntityManager em) {
         BancaAvaliacao bancaAvaliacao = new BancaAvaliacao()
-                .dataHoraApresentacao(DEFAULT_DATA_HORA_APRESENTACAO);
+                .dataHoraApresentacao(DEFAULT_DATA_HORA_APRESENTACAO)
+                .tipoAvaliacao(DEFAULT_TIPO_AVALIACAO);
         // Add required entity
         Proposta proposta = PropostaResourceIntTest.createEntity(em);
         em.persist(proposta);
@@ -118,6 +123,7 @@ public class BancaAvaliacaoResourceIntTest {
         assertThat(bancaAvaliacaos).hasSize(databaseSizeBeforeCreate + 1);
         BancaAvaliacao testBancaAvaliacao = bancaAvaliacaos.get(bancaAvaliacaos.size() - 1);
         assertThat(testBancaAvaliacao.getDataHoraApresentacao()).isEqualTo(DEFAULT_DATA_HORA_APRESENTACAO);
+        assertThat(testBancaAvaliacao.getTipoAvaliacao()).isEqualTo(DEFAULT_TIPO_AVALIACAO);
     }
 
     @Test
@@ -126,6 +132,24 @@ public class BancaAvaliacaoResourceIntTest {
         int databaseSizeBeforeTest = bancaAvaliacaoRepository.findAll().size();
         // set the field null
         bancaAvaliacao.setDataHoraApresentacao(null);
+
+        // Create the BancaAvaliacao, which fails.
+
+        restBancaAvaliacaoMockMvc.perform(post("/api/banca-avaliacaos")
+                .contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(bancaAvaliacao)))
+                .andExpect(status().isBadRequest());
+
+        List<BancaAvaliacao> bancaAvaliacaos = bancaAvaliacaoRepository.findAll();
+        assertThat(bancaAvaliacaos).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkTipoAvaliacaoIsRequired() throws Exception {
+        int databaseSizeBeforeTest = bancaAvaliacaoRepository.findAll().size();
+        // set the field null
+        bancaAvaliacao.setTipoAvaliacao(null);
 
         // Create the BancaAvaliacao, which fails.
 
@@ -149,7 +173,8 @@ public class BancaAvaliacaoResourceIntTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(bancaAvaliacao.getId().intValue())))
-                .andExpect(jsonPath("$.[*].dataHoraApresentacao").value(hasItem(DEFAULT_DATA_HORA_APRESENTACAO_STR)));
+                .andExpect(jsonPath("$.[*].dataHoraApresentacao").value(hasItem(DEFAULT_DATA_HORA_APRESENTACAO_STR)))
+                .andExpect(jsonPath("$.[*].tipoAvaliacao").value(hasItem(DEFAULT_TIPO_AVALIACAO.toString())));
     }
 
     @Test
@@ -163,7 +188,8 @@ public class BancaAvaliacaoResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(bancaAvaliacao.getId().intValue()))
-            .andExpect(jsonPath("$.dataHoraApresentacao").value(DEFAULT_DATA_HORA_APRESENTACAO_STR));
+            .andExpect(jsonPath("$.dataHoraApresentacao").value(DEFAULT_DATA_HORA_APRESENTACAO_STR))
+            .andExpect(jsonPath("$.tipoAvaliacao").value(DEFAULT_TIPO_AVALIACAO.toString()));
     }
 
     @Test
@@ -184,7 +210,8 @@ public class BancaAvaliacaoResourceIntTest {
         // Update the bancaAvaliacao
         BancaAvaliacao updatedBancaAvaliacao = bancaAvaliacaoRepository.findOne(bancaAvaliacao.getId());
         updatedBancaAvaliacao
-                .dataHoraApresentacao(UPDATED_DATA_HORA_APRESENTACAO);
+                .dataHoraApresentacao(UPDATED_DATA_HORA_APRESENTACAO)
+                .tipoAvaliacao(UPDATED_TIPO_AVALIACAO);
 
         restBancaAvaliacaoMockMvc.perform(put("/api/banca-avaliacaos")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -196,6 +223,7 @@ public class BancaAvaliacaoResourceIntTest {
         assertThat(bancaAvaliacaos).hasSize(databaseSizeBeforeUpdate);
         BancaAvaliacao testBancaAvaliacao = bancaAvaliacaos.get(bancaAvaliacaos.size() - 1);
         assertThat(testBancaAvaliacao.getDataHoraApresentacao()).isEqualTo(UPDATED_DATA_HORA_APRESENTACAO);
+        assertThat(testBancaAvaliacao.getTipoAvaliacao()).isEqualTo(UPDATED_TIPO_AVALIACAO);
     }
 
     @Test

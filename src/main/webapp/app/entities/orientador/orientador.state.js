@@ -14,7 +14,7 @@
             url: '/orientador',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'Orientadors'
+                pageTitle: 'pesquisaalfaApp.orientador.home.title'
             },
             views: {
                 'content@': {
@@ -24,6 +24,11 @@
                 }
             },
             resolve: {
+                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                    $translatePartialLoader.addPart('orientador');
+                    $translatePartialLoader.addPart('global');
+                    return $translate.refresh();
+                }]
             }
         })
         .state('orientador-detail', {
@@ -31,7 +36,7 @@
             url: '/orientador/{id}',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'Orientador'
+                pageTitle: 'pesquisaalfaApp.orientador.detail.title'
             },
             views: {
                 'content@': {
@@ -41,6 +46,10 @@
                 }
             },
             resolve: {
+                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                    $translatePartialLoader.addPart('orientador');
+                    return $translate.refresh();
+                }],
                 entity: ['$stateParams', 'Orientador', function($stateParams, Orientador) {
                     return Orientador.get({id : $stateParams.id}).$promise;
                 }],

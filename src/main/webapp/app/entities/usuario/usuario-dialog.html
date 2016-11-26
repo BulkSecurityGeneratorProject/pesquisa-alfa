@@ -4,75 +4,75 @@
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="vm.clear()">&times;</button>
-        <h4 class="modal-title" id="myUsuarioLabel">Create or edit a Usuario</h4>
+        <h4 class="modal-title" id="myUsuarioLabel" data-translate="pesquisaalfaApp.usuario.home.createOrEditLabel">Create or edit a Usuario</h4>
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
         <div class="form-group" ng-show="vm.usuario.id">
-            <label for="id">ID</label>
+            <label for="id" data-translate="global.field.id">ID</label>
             <input type="text" class="form-control" id="id" name="id"
                     ng-model="vm.usuario.id" readonly />
         </div>
         <div class="form-group">
-            <label class="control-label" for="field_nome">Nome</label>
+            <label class="control-label" data-translate="pesquisaalfaApp.usuario.nome" for="field_nome">Nome</label>
             <input type="text" class="form-control" name="nome" id="field_nome"
                     ng-model="vm.usuario.nome"
                     required ng-minlength="3" />
             <div ng-show="editForm.nome.$invalid">
                 <p class="help-block"
-                    ng-show="editForm.nome.$error.required">
+                    ng-show="editForm.nome.$error.required" data-translate="entity.validation.required">
                     This field is required.
                 </p>
                 <p class="help-block"
-                    ng-show="editForm.nome.$error.minlength" translate-value-min="3">
+                    ng-show="editForm.nome.$error.minlength" data-translate="entity.validation.minlength" translate-value-min="3">
                     This field is required to be at least 3 characters.
                 </p>
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" for="field_email">Email</label>
+            <label class="control-label" data-translate="pesquisaalfaApp.usuario.email" for="field_email">Email</label>
             <input type="text" class="form-control" name="email" id="field_email"
                     ng-model="vm.usuario.email"
                     required ng-minlength="5" />
             <div ng-show="editForm.email.$invalid">
                 <p class="help-block"
-                    ng-show="editForm.email.$error.required">
+                    ng-show="editForm.email.$error.required" data-translate="entity.validation.required">
                     This field is required.
                 </p>
                 <p class="help-block"
-                    ng-show="editForm.email.$error.minlength" translate-value-min="5">
+                    ng-show="editForm.email.$error.minlength" data-translate="entity.validation.minlength" translate-value-min="5">
                     This field is required to be at least 5 characters.
                 </p>
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" for="field_username">Username</label>
+            <label class="control-label" data-translate="pesquisaalfaApp.usuario.username" for="field_username">Username</label>
             <input type="text" class="form-control" name="username" id="field_username"
                     ng-model="vm.usuario.username"
                     required ng-minlength="3" />
             <div ng-show="editForm.username.$invalid">
                 <p class="help-block"
-                    ng-show="editForm.username.$error.required">
+                    ng-show="editForm.username.$error.required" data-translate="entity.validation.required">
                     This field is required.
                 </p>
                 <p class="help-block"
-                    ng-show="editForm.username.$error.minlength" translate-value-min="3">
+                    ng-show="editForm.username.$error.minlength" data-translate="entity.validation.minlength" translate-value-min="3">
                     This field is required to be at least 3 characters.
                 </p>
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" for="field_senha">Senha</label>
+            <label class="control-label" data-translate="pesquisaalfaApp.usuario.senha" for="field_senha">Senha</label>
             <input type="text" class="form-control" name="senha" id="field_senha"
                     ng-model="vm.usuario.senha"
                     required ng-minlength="5" />
             <div ng-show="editForm.senha.$invalid">
                 <p class="help-block"
-                    ng-show="editForm.senha.$error.required">
+                    ng-show="editForm.senha.$error.required" data-translate="entity.validation.required">
                     This field is required.
                 </p>
                 <p class="help-block"
-                    ng-show="editForm.senha.$error.minlength" translate-value-min="5">
+                    ng-show="editForm.senha.$error.minlength" data-translate="entity.validation.minlength" translate-value-min="5">
                     This field is required to be at least 5 characters.
                 </p>
             </div>
@@ -81,10 +81,10 @@
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
-            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
         </button>
         <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
-            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
         </button>
     </div>
 </form>

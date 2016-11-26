@@ -11,6 +11,8 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.Objects;
 
+import qs.pesquisaalfa.domain.enumeration.TiposAvaliacao;
+
 /**
  * A BancaAvaliacao.
  */
@@ -28,6 +30,11 @@ public class BancaAvaliacao implements Serializable {
     @NotNull
     @Column(name = "data_hora_apresentacao", nullable = false)
     private ZonedDateTime dataHoraApresentacao;
+
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    @Column(name = "tipo_avaliacao", nullable = false)
+    private TiposAvaliacao tipoAvaliacao;
 
     @OneToOne
     @NotNull
@@ -61,6 +68,19 @@ public class BancaAvaliacao implements Serializable {
 
     public void setDataHoraApresentacao(ZonedDateTime dataHoraApresentacao) {
         this.dataHoraApresentacao = dataHoraApresentacao;
+    }
+
+    public TiposAvaliacao getTipoAvaliacao() {
+        return tipoAvaliacao;
+    }
+
+    public BancaAvaliacao tipoAvaliacao(TiposAvaliacao tipoAvaliacao) {
+        this.tipoAvaliacao = tipoAvaliacao;
+        return this;
+    }
+
+    public void setTipoAvaliacao(TiposAvaliacao tipoAvaliacao) {
+        this.tipoAvaliacao = tipoAvaliacao;
     }
 
     public Proposta getProposta() {
@@ -126,6 +146,7 @@ public class BancaAvaliacao implements Serializable {
         return "BancaAvaliacao{" +
             "id=" + id +
             ", dataHoraApresentacao='" + dataHoraApresentacao + "'" +
+            ", tipoAvaliacao='" + tipoAvaliacao + "'" +
             '}';
     }
 }

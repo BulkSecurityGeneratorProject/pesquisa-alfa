@@ -4,41 +4,41 @@
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="vm.clear()">&times;</button>
-        <h4 class="modal-title" id="myProfessorLabel">Create or edit a Professor</h4>
+        <h4 class="modal-title" id="myProfessorLabel" data-translate="pesquisaalfaApp.professor.home.createOrEditLabel">Create or edit a Professor</h4>
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
         <div class="form-group" ng-show="vm.professor.id">
-            <label for="id">ID</label>
+            <label for="id" data-translate="global.field.id">ID</label>
             <input type="text" class="form-control" id="id" name="id"
                     ng-model="vm.professor.id" readonly />
         </div>
         <div class="form-group">
-            <label class="control-label" for="field_departamento">Departamento</label>
+            <label class="control-label" data-translate="pesquisaalfaApp.professor.departamento" for="field_departamento">Departamento</label>
             <input type="text" class="form-control" name="departamento" id="field_departamento"
                     ng-model="vm.professor.departamento"
                      />
         </div>
 
         <div class="form-group">
-            <label for="field_usuario">Usuario</label>
+            <label data-translate="pesquisaalfaApp.professor.usuario" for="field_usuario">Usuario</label>
             <select class="form-control" id="field_usuario" name="usuario" ng-model="vm.professor.usuario" ng-options="usuario as usuario.id for usuario in vm.usuarios | orderBy:'id' track by usuario.id" required>
                 <option value=""></option>
             </select>
         </div>
         <div ng-show="editForm.usuario.$invalid">
             <p class="help-block"
-                ng-show="editForm.usuario.$error.required">
+                ng-show="editForm.usuario.$error.required" data-translate="entity.validation.required">
                 This field is required.
             </p>
         </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
-            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
         </button>
         <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
-            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
         </button>
     </div>
 </form>

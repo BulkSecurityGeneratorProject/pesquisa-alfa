@@ -1,0 +1,27 @@
+{
+    "pesquisaalfaApp": {
+        "aluno" : {
+            "home": {
+                "title": "Alunos",
+                "createLabel": "Criar novo Aluno",
+                "createOrEditLabel": "Criar ou editar Aluno",
+                "search": "Pesquisar por Aluno"
+            },
+            "created": "Um novo Aluno é criado com o identificador {{ param }}",
+            "updated": "Um Aluno é atualizado com o identificador {{ param }}",
+            "deleted": "Um Aluno é deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Aluno {{ id }}?"
+            },
+            "detail": {
+                "title": "Aluno"
+            },
+            "dre": "Dre",
+            "dataMatricula": "Data Matricula",
+            "ehCandidato": "Eh Candidato",
+            "usuario": "Usuario",
+            "orientador": "Orientador",
+            "artigo": "Artigo"
+        }
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "pesquisaalfaApp": {
+        "tese" : {
+            "home": {
+                "title": "Tese",
+                "createLabel": "Create a new Tese",
+                "createOrEditLabel": "Create or edit a Tese",
+                "search": "Search for Tese"
+            },
+            "created": "A new Tese is created with identifier {{ param }}",
+            "updated": "A Tese is updated with identifier {{ param }}",
+            "deleted": "A Tese is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Tese {{ id }}?"
+            },
+            "detail": {
+                "title": "Tese"
+            },
+            "conceitoMedioPesquisa": "Conceito Medio Pesquisa",
+            "proposta": "Proposta"
+        }
+    }
+}

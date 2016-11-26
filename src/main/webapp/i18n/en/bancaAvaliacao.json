@@ -1,0 +1,25 @@
+{
+    "pesquisaalfaApp": {
+        "bancaAvaliacao" : {
+            "home": {
+                "title": "Banca Avaliacaos",
+                "createLabel": "Create a new Banca Avaliacao",
+                "createOrEditLabel": "Create or edit a Banca Avaliacao",
+                "search": "Search for Banca Avaliacao"
+            },
+            "created": "A new Banca Avaliacao is created with identifier {{ param }}",
+            "updated": "A Banca Avaliacao is updated with identifier {{ param }}",
+            "deleted": "A Banca Avaliacao is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Banca Avaliacao {{ id }}?"
+            },
+            "detail": {
+                "title": "Banca Avaliacao"
+            },
+            "dataHoraApresentacao": "Data Hora Apresentacao",
+            "tipoAvaliacao": "Tipo Avaliacao",
+            "proposta": "Proposta",
+            "professores": "Professores"
+        }
+    }
+}

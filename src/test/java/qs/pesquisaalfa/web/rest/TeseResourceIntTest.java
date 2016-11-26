@@ -30,7 +30,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-import qs.pesquisaalfa.domain.enumeration.Conceito;
+import qs.pesquisaalfa.domain.enumeration.ConceitoPesquisa;
 /**
  * Test class for the TeseResource REST controller.
  *
@@ -40,11 +40,8 @@ import qs.pesquisaalfa.domain.enumeration.Conceito;
 @SpringBootTest(classes = PesquisaalfaApp.class)
 public class TeseResourceIntTest {
 
-    private static final Conceito DEFAULT_CONCEITO_MEDIO_PESQUISA = Conceito.A;
-    private static final Conceito UPDATED_CONCEITO_MEDIO_PESQUISA = Conceito.B;
-
-    private static final Boolean DEFAULT_TESE_APROVADA = false;
-    private static final Boolean UPDATED_TESE_APROVADA = true;
+    private static final ConceitoPesquisa DEFAULT_CONCEITO_MEDIO_PESQUISA = ConceitoPesquisa.A;
+    private static final ConceitoPesquisa UPDATED_CONCEITO_MEDIO_PESQUISA = ConceitoPesquisa.B;
 
     @Inject
     private TeseRepository teseRepository;
@@ -80,8 +77,7 @@ public class TeseResourceIntTest {
      */
     public static Tese createEntity(EntityManager em) {
         Tese tese = new Tese()
-                .conceitoMedioPesquisa(DEFAULT_CONCEITO_MEDIO_PESQUISA)
-                .teseAprovada(DEFAULT_TESE_APROVADA);
+                .conceitoMedioPesquisa(DEFAULT_CONCEITO_MEDIO_PESQUISA);
         // Add required entity
         Proposta proposta = PropostaResourceIntTest.createEntity(em);
         em.persist(proposta);
@@ -112,7 +108,6 @@ public class TeseResourceIntTest {
         assertThat(tese).hasSize(databaseSizeBeforeCreate + 1);
         Tese testTese = tese.get(tese.size() - 1);
         assertThat(testTese.getConceitoMedioPesquisa()).isEqualTo(DEFAULT_CONCEITO_MEDIO_PESQUISA);
-        assertThat(testTese.isTeseAprovada()).isEqualTo(DEFAULT_TESE_APROVADA);
     }
 
     @Test
@@ -121,24 +116,6 @@ public class TeseResourceIntTest {
         int databaseSizeBeforeTest = teseRepository.findAll().size();
         // set the field null
         tese.setConceitoMedioPesquisa(null);
-
-        // Create the Tese, which fails.
-
-        restTeseMockMvc.perform(post("/api/tese")
-                .contentType(TestUtil.APPLICATION_JSON_UTF8)
-                .content(TestUtil.convertObjectToJsonBytes(tese)))
-                .andExpect(status().isBadRequest());
-
-        List<Tese> tese = teseRepository.findAll();
-        assertThat(tese).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
-    public void checkTeseAprovadaIsRequired() throws Exception {
-        int databaseSizeBeforeTest = teseRepository.findAll().size();
-        // set the field null
-        tese.setTeseAprovada(null);
 
         // Create the Tese, which fails.
 
@@ -162,8 +139,7 @@ public class TeseResourceIntTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(tese.getId().intValue())))
-                .andExpect(jsonPath("$.[*].conceitoMedioPesquisa").value(hasItem(DEFAULT_CONCEITO_MEDIO_PESQUISA.toString())))
-                .andExpect(jsonPath("$.[*].teseAprovada").value(hasItem(DEFAULT_TESE_APROVADA.booleanValue())));
+                .andExpect(jsonPath("$.[*].conceitoMedioPesquisa").value(hasItem(DEFAULT_CONCEITO_MEDIO_PESQUISA.toString())));
     }
 
     @Test
@@ -177,8 +153,7 @@ public class TeseResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(tese.getId().intValue()))
-            .andExpect(jsonPath("$.conceitoMedioPesquisa").value(DEFAULT_CONCEITO_MEDIO_PESQUISA.toString()))
-            .andExpect(jsonPath("$.teseAprovada").value(DEFAULT_TESE_APROVADA.booleanValue()));
+            .andExpect(jsonPath("$.conceitoMedioPesquisa").value(DEFAULT_CONCEITO_MEDIO_PESQUISA.toString()));
     }
 
     @Test
@@ -199,8 +174,7 @@ public class TeseResourceIntTest {
         // Update the tese
         Tese updatedTese = teseRepository.findOne(tese.getId());
         updatedTese
-                .conceitoMedioPesquisa(UPDATED_CONCEITO_MEDIO_PESQUISA)
-                .teseAprovada(UPDATED_TESE_APROVADA);
+                .conceitoMedioPesquisa(UPDATED_CONCEITO_MEDIO_PESQUISA);
 
         restTeseMockMvc.perform(put("/api/tese")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -212,7 +186,6 @@ public class TeseResourceIntTest {
         assertThat(tese).hasSize(databaseSizeBeforeUpdate);
         Tese testTese = tese.get(tese.size() - 1);
         assertThat(testTese.getConceitoMedioPesquisa()).isEqualTo(UPDATED_CONCEITO_MEDIO_PESQUISA);
-        assertThat(testTese.isTeseAprovada()).isEqualTo(UPDATED_TESE_APROVADA);
     }
 
     @Test

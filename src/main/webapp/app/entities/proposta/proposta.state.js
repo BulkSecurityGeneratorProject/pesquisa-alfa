@@ -14,7 +14,7 @@
             url: '/proposta',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'Propostas'
+                pageTitle: 'pesquisaalfaApp.proposta.home.title'
             },
             views: {
                 'content@': {
@@ -24,6 +24,11 @@
                 }
             },
             resolve: {
+                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                    $translatePartialLoader.addPart('proposta');
+                    $translatePartialLoader.addPart('global');
+                    return $translate.refresh();
+                }]
             }
         })
         .state('proposta-detail', {
@@ -31,7 +36,7 @@
             url: '/proposta/{id}',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'Proposta'
+                pageTitle: 'pesquisaalfaApp.proposta.detail.title'
             },
             views: {
                 'content@': {
@@ -41,6 +46,10 @@
                 }
             },
             resolve: {
+                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                    $translatePartialLoader.addPart('proposta');
+                    return $translate.refresh();
+                }],
                 entity: ['$stateParams', 'Proposta', function($stateParams, Proposta) {
                     return Proposta.get({id : $stateParams.id}).$promise;
                 }],
@@ -96,6 +105,7 @@
                         entity: function () {
                             return {
                                 propostaAceita: false,
+                                teseAceita: null,
                                 tema: null,
                                 id: null
                             };

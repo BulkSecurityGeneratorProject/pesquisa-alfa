@@ -16,13 +16,18 @@
     "messageBroker": false,
     "buildTool": "maven",
     "enableSocialSignIn": false,
-    "rememberMeKey": "ec89bf070d922df123e8f477878bb38f0d15fbcd",
+    "rememberMeKey": "2660851b0105cdb53df07c79b9ad6c136cdfe943",
     "useSass": false,
     "applicationType": "monolith",
     "testFrameworks": [
       "gatling"
     ],
     "jhiPrefix": "jhi",
-    "enableTranslation": false
+    "enableTranslation": true,
+    "nativeLanguage": "en",
+    "languages": [
+      "en",
+      "pt-br"
+    ]
   }
 }

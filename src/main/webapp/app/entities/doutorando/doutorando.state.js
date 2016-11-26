@@ -14,7 +14,7 @@
             url: '/doutorando',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'Doutorandos'
+                pageTitle: 'pesquisaalfaApp.doutorando.home.title'
             },
             views: {
                 'content@': {
@@ -24,6 +24,11 @@
                 }
             },
             resolve: {
+                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                    $translatePartialLoader.addPart('doutorando');
+                    $translatePartialLoader.addPart('global');
+                    return $translate.refresh();
+                }]
             }
         })
         .state('doutorando-detail', {
@@ -31,7 +36,7 @@
             url: '/doutorando/{id}',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'Doutorando'
+                pageTitle: 'pesquisaalfaApp.doutorando.detail.title'
             },
             views: {
                 'content@': {
@@ -41,6 +46,10 @@
                 }
             },
             resolve: {
+                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                    $translatePartialLoader.addPart('doutorando');
+                    return $translate.refresh();
+                }],
                 entity: ['$stateParams', 'Doutorando', function($stateParams, Doutorando) {
                     return Doutorando.get({id : $stateParams.id}).$promise;
                 }],

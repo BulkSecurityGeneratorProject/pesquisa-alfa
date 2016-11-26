@@ -67,7 +67,7 @@ class TeseGatlingTest extends Simulation {
             .exec(http("Create new tese")
             .post("/api/tese")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "conceitoMedioPesquisa":null, "teseAprovada":null}""")).asJSON
+            .body(StringBody("""{"id":null, "conceitoMedioPesquisa":null}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_tese_url"))).exitHereIfFailed
             .pause(10)

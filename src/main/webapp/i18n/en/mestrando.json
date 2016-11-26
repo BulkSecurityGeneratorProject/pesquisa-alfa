@@ -1,0 +1,23 @@
+{
+    "pesquisaalfaApp": {
+        "mestrando" : {
+            "home": {
+                "title": "Mestrandos",
+                "createLabel": "Create a new Mestrando",
+                "createOrEditLabel": "Create or edit a Mestrando",
+                "search": "Search for Mestrando"
+            },
+            "created": "A new Mestrando is created with identifier {{ param }}",
+            "updated": "A Mestrando is updated with identifier {{ param }}",
+            "deleted": "A Mestrando is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Mestrando {{ id }}?"
+            },
+            "detail": {
+                "title": "Mestrando"
+            },
+            "terminouObrigatorias": "Terminou Obrigatorias",
+            "aluno": "Aluno"
+        }
+    }
+}

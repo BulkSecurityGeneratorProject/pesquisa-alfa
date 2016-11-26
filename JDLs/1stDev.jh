@@ -1,0 +1,80 @@
+entity Usuario {
+	nome String required minlength(3),
+    email String required minlength(5),
+    username String required minlength(3),
+    senha String required minlength(5)
+}
+
+entity Secretaria {
+}
+
+entity Professor {
+	departamento String
+}
+
+entity Aluno {
+	dre Integer,
+    dataMatricula LocalDate required,
+    ehCandidato Boolean required
+}
+
+entity Orientador {
+}
+
+entity Doutorando {
+	terminou1oPeriodo Boolean required
+}
+
+entity Mestrando {
+	terminouObrigatorias Boolean required
+}
+
+entity Artigo {
+	titulo String required minlength(3),
+	dataApresentacao LocalDate required
+}
+
+enum TiposAvaliacao {
+	PROPOSTA, TESE
+}
+
+entity BancaAvaliacao {
+	dataHoraApresentacao ZonedDateTime required,
+	tipoAvaliacao TiposAvaliacao required,
+}
+
+entity Proposta {
+	propostaAceita Boolean required,
+	teseAceita Boolean,
+    tema String required
+}
+
+enum ConceitoPesquisa {
+	A, B, C, D, X
+}
+
+entity Tese {
+	conceitoMedioPesquisa ConceitoPesquisa required,
+}
+
+relationship OneToOne {
+	Secretaria{usuario required} to Usuario,
+	Professor{usuario  required} to Usuario,
+	Aluno{usuario required} to Usuario,
+	Orientador{professor required} to Professor,
+	Doutorando{aluno required} to Aluno,
+	Mestrando{aluno required} to Aluno,
+	Proposta{aluno required} to Aluno,
+	Tese{proposta required} to Proposta,
+	BancaAvaliacao{proposta required} to Proposta
+}
+
+relationship ManyToOne {
+	Aluno{orientador} to Orientador,
+	Proposta{orientador required} to Orientador
+}
+
+relationship ManyToMany {
+	Artigo{alunos required} to Aluno{artigo},
+	BancaAvaliacao{professores required} to Professor{bancasAvaliacao}
+}

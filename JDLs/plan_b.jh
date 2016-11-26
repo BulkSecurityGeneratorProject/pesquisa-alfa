@@ -5,7 +5,7 @@ entity Usuario {
     senha String required minlength(5)
 }
 
-entity Gerente {
+entity Secretaria {
 }
 
 entity Professor {

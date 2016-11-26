@@ -41,7 +41,7 @@
         timeToLiveSeconds="3600">
     </cache>
 
-    <cache name="qs.pesquisaalfa.domain.Gerente"
+    <cache name="qs.pesquisaalfa.domain.Secretaria"
         timeToLiveSeconds="3600">
     </cache>
 

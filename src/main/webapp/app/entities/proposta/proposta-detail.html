@@ -1,22 +1,26 @@
 
 <div>
-    <h2><span>Proposta</span> {{vm.proposta.id}}</h2>
+    <h2><span data-translate="pesquisaalfaApp.proposta.detail.title">Proposta</span> {{vm.proposta.id}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="dl-horizontal jh-entity-details">
-        <dt><span>Proposta Aceita</span></dt>
+        <dt><span data-translate="pesquisaalfaApp.proposta.propostaAceita">Proposta Aceita</span></dt>
         <dd>
             <span>{{vm.proposta.propostaAceita}}</span>
         </dd>
-        <dt><span>Tema</span></dt>
+        <dt><span data-translate="pesquisaalfaApp.proposta.teseAceita">Tese Aceita</span></dt>
+        <dd>
+            <span>{{vm.proposta.teseAceita}}</span>
+        </dd>
+        <dt><span data-translate="pesquisaalfaApp.proposta.tema">Tema</span></dt>
         <dd>
             <span>{{vm.proposta.tema}}</span>
         </dd>
-        <dt><span>Aluno</span></dt>
+        <dt><span data-translate="pesquisaalfaApp.proposta.aluno">Aluno</span></dt>
         <dd>
             <a ui-sref="aluno-detail({id:vm.proposta.aluno.id})">{{vm.proposta.aluno.id}}</a>
         </dd>
-        <dt><span>Orientador</span></dt>
+        <dt><span data-translate="pesquisaalfaApp.proposta.orientador">Orientador</span></dt>
         <dd>
             <a ui-sref="orientador-detail({id:vm.proposta.orientador.id})">{{vm.proposta.orientador.id}}</a>
         </dd>
@@ -25,11 +29,11 @@
     <button type="submit"
             ui-sref="{{ vm.previousState }}"
             class="btn btn-info">
-        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
     </button>
 
     <button type="button" ui-sref="proposta-detail.edit({id:vm.proposta.id})" class="btn btn-primary">
         <span class="glyphicon glyphicon-pencil"></span>
-        <span class="hidden-xs hidden-sm"> Edit</span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
     </button>
 </div>

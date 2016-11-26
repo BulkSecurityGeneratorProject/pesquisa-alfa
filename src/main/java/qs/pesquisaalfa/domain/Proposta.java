@@ -26,6 +26,9 @@ public class Proposta implements Serializable {
     @Column(name = "proposta_aceita", nullable = false)
     private Boolean propostaAceita;
 
+    @Column(name = "tese_aceita")
+    private Boolean teseAceita;
+
     @NotNull
     @Column(name = "tema", nullable = false)
     private String tema;
@@ -58,6 +61,19 @@ public class Proposta implements Serializable {
 
     public void setPropostaAceita(Boolean propostaAceita) {
         this.propostaAceita = propostaAceita;
+    }
+
+    public Boolean isTeseAceita() {
+        return teseAceita;
+    }
+
+    public Proposta teseAceita(Boolean teseAceita) {
+        this.teseAceita = teseAceita;
+        return this;
+    }
+
+    public void setTeseAceita(Boolean teseAceita) {
+        this.teseAceita = teseAceita;
     }
 
     public String getTema() {
@@ -124,6 +140,7 @@ public class Proposta implements Serializable {
         return "Proposta{" +
             "id=" + id +
             ", propostaAceita='" + propostaAceita + "'" +
+            ", teseAceita='" + teseAceita + "'" +
             ", tema='" + tema + "'" +
             '}';
     }

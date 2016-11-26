@@ -43,6 +43,9 @@ public class PropostaResourceIntTest {
     private static final Boolean DEFAULT_PROPOSTA_ACEITA = false;
     private static final Boolean UPDATED_PROPOSTA_ACEITA = true;
 
+    private static final Boolean DEFAULT_TESE_ACEITA = false;
+    private static final Boolean UPDATED_TESE_ACEITA = true;
+
     private static final String DEFAULT_TEMA = "AAAAA";
     private static final String UPDATED_TEMA = "BBBBB";
 
@@ -81,6 +84,7 @@ public class PropostaResourceIntTest {
     public static Proposta createEntity(EntityManager em) {
         Proposta proposta = new Proposta()
                 .propostaAceita(DEFAULT_PROPOSTA_ACEITA)
+                .teseAceita(DEFAULT_TESE_ACEITA)
                 .tema(DEFAULT_TEMA);
         // Add required entity
         Aluno aluno = AlunoResourceIntTest.createEntity(em);
@@ -117,6 +121,7 @@ public class PropostaResourceIntTest {
         assertThat(propostas).hasSize(databaseSizeBeforeCreate + 1);
         Proposta testProposta = propostas.get(propostas.size() - 1);
         assertThat(testProposta.isPropostaAceita()).isEqualTo(DEFAULT_PROPOSTA_ACEITA);
+        assertThat(testProposta.isTeseAceita()).isEqualTo(DEFAULT_TESE_ACEITA);
         assertThat(testProposta.getTema()).isEqualTo(DEFAULT_TEMA);
     }
 
@@ -168,6 +173,7 @@ public class PropostaResourceIntTest {
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(proposta.getId().intValue())))
                 .andExpect(jsonPath("$.[*].propostaAceita").value(hasItem(DEFAULT_PROPOSTA_ACEITA.booleanValue())))
+                .andExpect(jsonPath("$.[*].teseAceita").value(hasItem(DEFAULT_TESE_ACEITA.booleanValue())))
                 .andExpect(jsonPath("$.[*].tema").value(hasItem(DEFAULT_TEMA.toString())));
     }
 
@@ -183,6 +189,7 @@ public class PropostaResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(proposta.getId().intValue()))
             .andExpect(jsonPath("$.propostaAceita").value(DEFAULT_PROPOSTA_ACEITA.booleanValue()))
+            .andExpect(jsonPath("$.teseAceita").value(DEFAULT_TESE_ACEITA.booleanValue()))
             .andExpect(jsonPath("$.tema").value(DEFAULT_TEMA.toString()));
     }
 
@@ -205,6 +212,7 @@ public class PropostaResourceIntTest {
         Proposta updatedProposta = propostaRepository.findOne(proposta.getId());
         updatedProposta
                 .propostaAceita(UPDATED_PROPOSTA_ACEITA)
+                .teseAceita(UPDATED_TESE_ACEITA)
                 .tema(UPDATED_TEMA);
 
         restPropostaMockMvc.perform(put("/api/propostas")
@@ -217,6 +225,7 @@ public class PropostaResourceIntTest {
         assertThat(propostas).hasSize(databaseSizeBeforeUpdate);
         Proposta testProposta = propostas.get(propostas.size() - 1);
         assertThat(testProposta.isPropostaAceita()).isEqualTo(UPDATED_PROPOSTA_ACEITA);
+        assertThat(testProposta.isTeseAceita()).isEqualTo(UPDATED_TESE_ACEITA);
         assertThat(testProposta.getTema()).isEqualTo(UPDATED_TEMA);
     }
 

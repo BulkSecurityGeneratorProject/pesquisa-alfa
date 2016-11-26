@@ -8,7 +8,7 @@ import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
 
-import qs.pesquisaalfa.domain.enumeration.Conceito;
+import qs.pesquisaalfa.domain.enumeration.ConceitoPesquisa;
 
 /**
  * A Tese.
@@ -27,11 +27,7 @@ public class Tese implements Serializable {
     @NotNull
     @Enumerated(EnumType.STRING)
     @Column(name = "conceito_medio_pesquisa", nullable = false)
-    private Conceito conceitoMedioPesquisa;
-
-    @NotNull
-    @Column(name = "tese_aprovada", nullable = false)
-    private Boolean teseAprovada;
+    private ConceitoPesquisa conceitoMedioPesquisa;
 
     @OneToOne
     @NotNull
@@ -46,30 +42,17 @@ public class Tese implements Serializable {
         this.id = id;
     }
 
-    public Conceito getConceitoMedioPesquisa() {
+    public ConceitoPesquisa getConceitoMedioPesquisa() {
         return conceitoMedioPesquisa;
     }
 
-    public Tese conceitoMedioPesquisa(Conceito conceitoMedioPesquisa) {
+    public Tese conceitoMedioPesquisa(ConceitoPesquisa conceitoMedioPesquisa) {
         this.conceitoMedioPesquisa = conceitoMedioPesquisa;
         return this;
     }
 
-    public void setConceitoMedioPesquisa(Conceito conceitoMedioPesquisa) {
+    public void setConceitoMedioPesquisa(ConceitoPesquisa conceitoMedioPesquisa) {
         this.conceitoMedioPesquisa = conceitoMedioPesquisa;
-    }
-
-    public Boolean isTeseAprovada() {
-        return teseAprovada;
-    }
-
-    public Tese teseAprovada(Boolean teseAprovada) {
-        this.teseAprovada = teseAprovada;
-        return this;
-    }
-
-    public void setTeseAprovada(Boolean teseAprovada) {
-        this.teseAprovada = teseAprovada;
     }
 
     public Proposta getProposta() {
@@ -110,7 +93,6 @@ public class Tese implements Serializable {
         return "Tese{" +
             "id=" + id +
             ", conceitoMedioPesquisa='" + conceitoMedioPesquisa + "'" +
-            ", teseAprovada='" + teseAprovada + "'" +
             '}';
     }
 }

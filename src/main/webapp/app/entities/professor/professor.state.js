@@ -14,7 +14,7 @@
             url: '/professor',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'Professors'
+                pageTitle: 'pesquisaalfaApp.professor.home.title'
             },
             views: {
                 'content@': {
@@ -24,6 +24,11 @@
                 }
             },
             resolve: {
+                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                    $translatePartialLoader.addPart('professor');
+                    $translatePartialLoader.addPart('global');
+                    return $translate.refresh();
+                }]
             }
         })
         .state('professor-detail', {
@@ -31,7 +36,7 @@
             url: '/professor/{id}',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'Professor'
+                pageTitle: 'pesquisaalfaApp.professor.detail.title'
             },
             views: {
                 'content@': {
@@ -41,6 +46,10 @@
                 }
             },
             resolve: {
+                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                    $translatePartialLoader.addPart('professor');
+                    return $translate.refresh();
+                }],
                 entity: ['$stateParams', 'Professor', function($stateParams, Professor) {
                     return Professor.get({id : $stateParams.id}).$promise;
                 }],

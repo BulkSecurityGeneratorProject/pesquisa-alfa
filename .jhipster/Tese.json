@@ -14,21 +14,14 @@
     "fields": [
         {
             "fieldName": "conceitoMedioPesquisa",
-            "fieldType": "Conceito",
+            "fieldType": "ConceitoPesquisa",
             "fieldValues": "A,B,C,D,X",
-            "fieldValidateRules": [
-                "required"
-            ]
-        },
-        {
-            "fieldName": "teseAprovada",
-            "fieldType": "Boolean",
             "fieldValidateRules": [
                 "required"
             ]
         }
     ],
-    "changelogDate": "20161031022454",
+    "changelogDate": "20161126181644",
     "entityTableName": "tese",
     "dto": "no",
     "pagination": "no",
