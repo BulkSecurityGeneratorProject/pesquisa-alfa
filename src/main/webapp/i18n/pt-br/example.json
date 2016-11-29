@@ -1,0 +1,32 @@
+{
+    "example": {
+        "title": "Feature de Exemplo",
+        "form": {
+            "campo1": "Campo 1",
+            "campo1.placeholder": "Digite algo",
+            "campo2": "Campo 2",
+            "campo2.placeholder": "Digite algo",
+            "language": "Language",
+            "button": "Save"
+        },
+        "messages": {
+            "error": {
+                "fail": "<strong>An error has occurred!</strong> Settings could not be saved.",
+                "emailexists": "<strong>E-mail is already in use!</strong> Please choose another one."
+            },
+            "success": "<strong>Settings saved!</strong>",
+            "validate": {
+                "firstname": {
+                    "required": "Your first name is required.",
+                    "minlength": "Your first name is required to be at least 1 character",
+                    "maxlength": "Your first name cannot be longer than 50 characters"
+                },
+                "lastname": {
+                    "required": "Your last name is required.",
+                    "minlength": "Your last name is required to be at least 1 character",
+                    "maxlength": "Your last name cannot be longer than 50 characters"
+                }
+            }
+        }
+    }
+}
