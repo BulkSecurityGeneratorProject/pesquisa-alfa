@@ -1,0 +1,39 @@
+
+<div>
+    <h2><span>Reuniao</span> {{vm.reuniao.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Horario</span></dt>
+        <dd>
+            <span>{{vm.reuniao.horario | date:'medium'}}</span>
+        </dd>
+        <dt><span>Assunto</span></dt>
+        <dd>
+            <span>{{vm.reuniao.assunto}}</span>
+        </dd>
+        <dt><span>Reuniao Aprovada</span></dt>
+        <dd>
+            <span>{{vm.reuniao.reuniaoAprovada}}</span>
+        </dd>
+        <dt><span>Aluno</span></dt>
+        <dd>
+            <a ui-sref="aluno-detail({id:vm.reuniao.aluno.id})">{{vm.reuniao.aluno.id}}</a>
+        </dd>
+        <dt><span>Orientador</span></dt>
+        <dd>
+            <a ui-sref="orientador-detail({id:vm.reuniao.orientador.id})">{{vm.reuniao.orientador.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="reuniao-detail.edit({id:vm.reuniao.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

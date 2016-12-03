@@ -4,51 +4,51 @@
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="vm.clear()">&times;</button>
-        <h4 class="modal-title" id="myTeseLabel" data-translate="pesquisaalfaApp.tese.home.createOrEditLabel">Create or edit a Tese</h4>
+        <h4 class="modal-title" id="myTeseLabel">Create or edit a Tese</h4>
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
         <div class="form-group" ng-show="vm.tese.id">
-            <label for="id" data-translate="global.field.id">ID</label>
+            <label for="id">ID</label>
             <input type="text" class="form-control" id="id" name="id"
                     ng-model="vm.tese.id" readonly />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="pesquisaalfaApp.tese.conceitoMedioPesquisa" for="field_conceitoMedioPesquisa">Conceito Medio Pesquisa</label>
+            <label class="control-label" for="field_conceitoMedioPesquisa">Conceito Medio Pesquisa</label>
             <select class="form-control" name="conceitoMedioPesquisa" ng-model="vm.tese.conceitoMedioPesquisa" id="field_conceitoMedioPesquisa" required>
-                <option value="A" data-translate="pesquisaalfaApp.ConceitoPesquisa.A">A</option>
-                <option value="B" data-translate="pesquisaalfaApp.ConceitoPesquisa.B">B</option>
-                <option value="C" data-translate="pesquisaalfaApp.ConceitoPesquisa.C">C</option>
-                <option value="D" data-translate="pesquisaalfaApp.ConceitoPesquisa.D">D</option>
-                <option value="X" data-translate="pesquisaalfaApp.ConceitoPesquisa.X">X</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+                <option value="X">X</option>
             </select>
             <div ng-show="editForm.conceitoMedioPesquisa.$invalid">
                 <p class="help-block"
-                    ng-show="editForm.conceitoMedioPesquisa.$error.required" data-translate="entity.validation.required">
+                    ng-show="editForm.conceitoMedioPesquisa.$error.required">
                     This field is required.
                 </p>
             </div>
         </div>
 
         <div class="form-group">
-            <label data-translate="pesquisaalfaApp.tese.proposta" for="field_proposta">Proposta</label>
+            <label for="field_proposta">Proposta</label>
             <select class="form-control" id="field_proposta" name="proposta" ng-model="vm.tese.proposta" ng-options="proposta as proposta.id for proposta in vm.propostas | orderBy:'id' track by proposta.id" required>
                 <option value=""></option>
             </select>
         </div>
         <div ng-show="editForm.proposta.$invalid">
             <p class="help-block"
-                ng-show="editForm.proposta.$error.required" data-translate="entity.validation.required">
+                ng-show="editForm.proposta.$error.required">
                 This field is required.
             </p>
         </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
-            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
         </button>
         <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
-            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
         </button>
     </div>
 </form>

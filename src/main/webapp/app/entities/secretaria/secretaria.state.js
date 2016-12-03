@@ -14,7 +14,7 @@
             url: '/secretaria',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'pesquisaalfaApp.secretaria.home.title'
+                pageTitle: 'Secretarias'
             },
             views: {
                 'content@': {
@@ -24,11 +24,6 @@
                 }
             },
             resolve: {
-                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                    $translatePartialLoader.addPart('secretaria');
-                    $translatePartialLoader.addPart('global');
-                    return $translate.refresh();
-                }]
             }
         })
         .state('secretaria-detail', {
@@ -36,7 +31,7 @@
             url: '/secretaria/{id}',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'pesquisaalfaApp.secretaria.detail.title'
+                pageTitle: 'Secretaria'
             },
             views: {
                 'content@': {
@@ -46,10 +41,6 @@
                 }
             },
             resolve: {
-                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                    $translatePartialLoader.addPart('secretaria');
-                    return $translate.refresh();
-                }],
                 entity: ['$stateParams', 'Secretaria', function($stateParams, Secretaria) {
                     return Secretaria.get({id : $stateParams.id}).$promise;
                 }],

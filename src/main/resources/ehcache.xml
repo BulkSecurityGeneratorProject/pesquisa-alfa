@@ -97,5 +97,13 @@
         timeToLiveSeconds="3600">
     </cache>
 
+    <cache name="qs.pesquisaalfa.domain.Reuniao"
+        timeToLiveSeconds="3600">
+    </cache>
+
+    <cache name="qs.pesquisaalfa.domain.ApresentacoesArtigo"
+        timeToLiveSeconds="3600">
+    </cache>
+
     <!-- jhipster-needle-ehcache-add-entry -->
 </ehcache>

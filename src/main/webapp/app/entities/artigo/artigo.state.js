@@ -14,7 +14,7 @@
             url: '/artigo',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'pesquisaalfaApp.artigo.home.title'
+                pageTitle: 'Artigos'
             },
             views: {
                 'content@': {
@@ -24,11 +24,6 @@
                 }
             },
             resolve: {
-                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                    $translatePartialLoader.addPart('artigo');
-                    $translatePartialLoader.addPart('global');
-                    return $translate.refresh();
-                }]
             }
         })
         .state('artigo-detail', {
@@ -36,7 +31,7 @@
             url: '/artigo/{id}',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'pesquisaalfaApp.artigo.detail.title'
+                pageTitle: 'Artigo'
             },
             views: {
                 'content@': {
@@ -46,10 +41,6 @@
                 }
             },
             resolve: {
-                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                    $translatePartialLoader.addPart('artigo');
-                    return $translate.refresh();
-                }],
                 entity: ['$stateParams', 'Artigo', function($stateParams, Artigo) {
                     return Artigo.get({id : $stateParams.id}).$promise;
                 }],
@@ -105,7 +96,6 @@
                         entity: function () {
                             return {
                                 titulo: null,
-                                dataApresentacao: null,
                                 id: null
                             };
                         }

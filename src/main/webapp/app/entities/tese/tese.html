@@ -1,12 +1,12 @@
 <div>
-    <h2 data-translate="pesquisaalfaApp.tese.home.title">Tese</h2>
+    <h2>Tese</h2>
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-4 no-padding-left">
                 <button class="btn btn-primary" ui-sref="tese.new" >
                     <span class="glyphicon glyphicon-plus"></span>
-                    <span  data-translate="pesquisaalfaApp.tese.home.createLabel">
+                    <span >
                         Create new Tese
                     </span>
                 </button>
@@ -18,16 +18,16 @@
         <table class="jh-table table table-striped">
             <thead>
                 <tr>
-                    <th><span data-translate="global.field.id">ID</span></th>
-                    <th><span data-translate="pesquisaalfaApp.tese.conceitoMedioPesquisa">Conceito Medio Pesquisa</span></th>
-                    <th><span data-translate="pesquisaalfaApp.tese.proposta">Proposta</span></th>
+                    <th><span>ID</span></th>
+                    <th><span>Conceito Medio Pesquisa</span></th>
+                    <th><span>Proposta</span></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="tese in vm.tese track by tese.id">
                     <td><a ui-sref="tese-detail({id:tese.id})">{{tese.id}}</a></td>
-                    <td data-translate="{{'pesquisaalfaApp.ConceitoPesquisa.' + tese.conceitoMedioPesquisa}}">{{tese.conceitoMedioPesquisa}}</td>
+                    <td>{{tese.conceitoMedioPesquisa}}</td>
                     <td>
                         <a ui-sref="proposta-detail({id:tese.proposta.id})">{{tese.proposta.id}}</a>
                     </td>
@@ -37,19 +37,19 @@
                                     ui-sref="tese-detail({id:tese.id})"
                                     class="btn btn-info btn-sm">
                                 <span class="glyphicon glyphicon-eye-open"></span>
-                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
+                                <span class="hidden-xs hidden-sm"></span>
                             </button>
                             <button type="submit"
                                     ui-sref="tese.edit({id:tese.id})"
                                     class="btn btn-primary btn-sm">
                                 <span class="glyphicon glyphicon-pencil"></span>
-                                <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
+                                <span class="hidden-xs hidden-sm"></span>
                             </button>
                             <button type="submit"
                                     ui-sref="tese.delete({id:tese.id})"
                                     class="btn btn-danger btn-sm">
                                 <span class="glyphicon glyphicon-remove-circle"></span>
-                                <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
+                                <span class="hidden-xs hidden-sm"></span>
                             </button>
                         </div>
                     </td>

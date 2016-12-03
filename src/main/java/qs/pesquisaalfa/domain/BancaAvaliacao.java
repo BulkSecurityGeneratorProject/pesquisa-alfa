@@ -36,11 +36,6 @@ public class BancaAvaliacao implements Serializable {
     @Column(name = "tipo_avaliacao", nullable = false)
     private TiposAvaliacao tipoAvaliacao;
 
-    @OneToOne
-    @NotNull
-    @JoinColumn(unique = true)
-    private Proposta proposta;
-
     @ManyToMany
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     @NotNull
@@ -81,19 +76,6 @@ public class BancaAvaliacao implements Serializable {
 
     public void setTipoAvaliacao(TiposAvaliacao tipoAvaliacao) {
         this.tipoAvaliacao = tipoAvaliacao;
-    }
-
-    public Proposta getProposta() {
-        return proposta;
-    }
-
-    public BancaAvaliacao proposta(Proposta proposta) {
-        this.proposta = proposta;
-        return this;
-    }
-
-    public void setProposta(Proposta proposta) {
-        this.proposta = proposta;
     }
 
     public Set<Professor> getProfessores() {

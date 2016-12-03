@@ -1,0 +1,69 @@
+<div>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="uc11.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Nova Reuniao
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <h2>Lista de Reuniões</h2>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>Horario</span></th>
+                    <th><span>Assunto</span></th>
+                    <th><span>Reuniao Aprovada</span></th>
+                    <th><span>Aluno</span></th>
+                    <th><span>Orientador</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="reuniao in vm.reuniaos track by reuniao.id">
+                    <td><a ui-sref="reuniao-detail({id:reuniao.id})">{{reuniao.id}}</a></td>
+                    <td>{{reuniao.horario | date:'medium'}}</td>
+                    <td>{{reuniao.assunto}}</td>
+                    <td>{{reuniao.reuniaoAprovada}}</td>
+                    <td>
+                        <a ui-sref="aluno-detail({id:reuniao.aluno.id})">{{reuniao.aluno.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="orientador-detail({id:reuniao.orientador.id})">{{reuniao.orientador.id}}</a>
+                    </td>
+
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="reuniao-detail({id:reuniao.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="reuniao.edit({id:reuniao.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="reuniao.delete({id:reuniao.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

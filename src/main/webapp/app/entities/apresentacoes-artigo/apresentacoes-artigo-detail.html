@@ -1,0 +1,31 @@
+
+<div>
+    <h2><span>Apresentacoes Artigo</span> {{vm.apresentacoesArtigo.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Data Apresentacao</span></dt>
+        <dd>
+            <span>{{vm.apresentacoesArtigo.dataApresentacao | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Local</span></dt>
+        <dd>
+            <span>{{vm.apresentacoesArtigo.local}}</span>
+        </dd>
+        <dt><span>Artigo</span></dt>
+        <dd>
+            <a ui-sref="artigo-detail({id:vm.apresentacoesArtigo.artigo.id})">{{vm.apresentacoesArtigo.artigo.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="apresentacoes-artigo-detail.edit({id:vm.apresentacoesArtigo.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

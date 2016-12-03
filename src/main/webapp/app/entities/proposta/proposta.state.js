@@ -14,7 +14,7 @@
             url: '/proposta',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'pesquisaalfaApp.proposta.home.title'
+                pageTitle: 'Propostas'
             },
             views: {
                 'content@': {
@@ -24,11 +24,6 @@
                 }
             },
             resolve: {
-                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                    $translatePartialLoader.addPart('proposta');
-                    $translatePartialLoader.addPart('global');
-                    return $translate.refresh();
-                }]
             }
         })
         .state('proposta-detail', {
@@ -36,7 +31,7 @@
             url: '/proposta/{id}',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'pesquisaalfaApp.proposta.detail.title'
+                pageTitle: 'Proposta'
             },
             views: {
                 'content@': {
@@ -46,10 +41,6 @@
                 }
             },
             resolve: {
-                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                    $translatePartialLoader.addPart('proposta');
-                    return $translate.refresh();
-                }],
                 entity: ['$stateParams', 'Proposta', function($stateParams, Proposta) {
                     return Proposta.get({id : $stateParams.id}).$promise;
                 }],

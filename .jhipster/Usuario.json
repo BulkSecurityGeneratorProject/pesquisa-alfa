@@ -39,7 +39,7 @@
             "fieldValidateRulesMinlength": 5
         }
     ],
-    "changelogDate": "20161126181634",
+    "changelogDate": "20161203141212",
     "entityTableName": "usuario",
     "dto": "no",
     "pagination": "no",

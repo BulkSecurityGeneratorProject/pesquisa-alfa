@@ -1,22 +1,22 @@
 
 <div>
-    <h2><span data-translate="pesquisaalfaApp.usuario.detail.title">Usuario</span> {{vm.usuario.id}}</h2>
+    <h2><span>Usuario</span> {{vm.usuario.id}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="dl-horizontal jh-entity-details">
-        <dt><span data-translate="pesquisaalfaApp.usuario.nome">Nome</span></dt>
+        <dt><span>Nome</span></dt>
         <dd>
             <span>{{vm.usuario.nome}}</span>
         </dd>
-        <dt><span data-translate="pesquisaalfaApp.usuario.email">Email</span></dt>
+        <dt><span>Email</span></dt>
         <dd>
             <span>{{vm.usuario.email}}</span>
         </dd>
-        <dt><span data-translate="pesquisaalfaApp.usuario.username">Username</span></dt>
+        <dt><span>Username</span></dt>
         <dd>
             <span>{{vm.usuario.username}}</span>
         </dd>
-        <dt><span data-translate="pesquisaalfaApp.usuario.senha">Senha</span></dt>
+        <dt><span>Senha</span></dt>
         <dd>
             <span>{{vm.usuario.senha}}</span>
         </dd>
@@ -25,11 +25,11 @@
     <button type="submit"
             ui-sref="{{ vm.previousState }}"
             class="btn btn-info">
-        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
     </button>
 
     <button type="button" ui-sref="usuario-detail.edit({id:vm.usuario.id})" class="btn btn-primary">
         <span class="glyphicon glyphicon-pencil"></span>
-        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
     </button>
 </div>

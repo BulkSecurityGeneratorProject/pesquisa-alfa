@@ -67,7 +67,7 @@ class ArtigoGatlingTest extends Simulation {
             .exec(http("Create new artigo")
             .post("/api/artigos")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "titulo":"SAMPLE_TEXT", "dataApresentacao":"2020-01-01T00:00:00.000Z"}""")).asJSON
+            .body(StringBody("""{"id":null, "titulo":"SAMPLE_TEXT"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_artigo_url"))).exitHereIfFailed
             .pause(10)

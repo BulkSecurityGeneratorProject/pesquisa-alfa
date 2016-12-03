@@ -24,7 +24,7 @@
             "fieldType": "String"
         }
     ],
-    "changelogDate": "20161126181636",
+    "changelogDate": "20161203141214",
     "entityTableName": "professor",
     "dto": "no",
     "pagination": "no",

@@ -20,16 +20,9 @@
                 "minlength"
             ],
             "fieldValidateRulesMinlength": 3
-        },
-        {
-            "fieldName": "dataApresentacao",
-            "fieldType": "LocalDate",
-            "fieldValidateRules": [
-                "required"
-            ]
         }
     ],
-    "changelogDate": "20161126181641",
+    "changelogDate": "20161203141219",
     "entityTableName": "artigo",
     "dto": "no",
     "pagination": "no",

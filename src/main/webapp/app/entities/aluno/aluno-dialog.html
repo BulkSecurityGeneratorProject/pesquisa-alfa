@@ -4,23 +4,23 @@
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="vm.clear()">&times;</button>
-        <h4 class="modal-title" id="myAlunoLabel" data-translate="pesquisaalfaApp.aluno.home.createOrEditLabel">Create or edit a Aluno</h4>
+        <h4 class="modal-title" id="myAlunoLabel">Create or edit a Aluno</h4>
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
         <div class="form-group" ng-show="vm.aluno.id">
-            <label for="id" data-translate="global.field.id">ID</label>
+            <label for="id">ID</label>
             <input type="text" class="form-control" id="id" name="id"
                     ng-model="vm.aluno.id" readonly />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="pesquisaalfaApp.aluno.dre" for="field_dre">Dre</label>
+            <label class="control-label" for="field_dre">Dre</label>
             <input type="number" class="form-control" name="dre" id="field_dre"
                     ng-model="vm.aluno.dre"
                      />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="pesquisaalfaApp.aluno.dataMatricula" for="field_dataMatricula">Data Matricula</label>
+            <label class="control-label" for="field_dataMatricula">Data Matricula</label>
                 <div class="input-group">
                     <input id="field_dataMatricula" type="text" class="form-control" name="dataMatricula" uib-datepicker-popup="{{dateformat}}" ng-model="vm.aluno.dataMatricula" is-open="vm.datePickerOpenStatus.dataMatricula"
                     required/>
@@ -30,38 +30,38 @@
                 </div>
             <div ng-show="editForm.dataMatricula.$invalid">
                 <p class="help-block"
-                    ng-show="editForm.dataMatricula.$error.required" data-translate="entity.validation.required">
+                    ng-show="editForm.dataMatricula.$error.required">
                     This field is required.
                 </p>
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="pesquisaalfaApp.aluno.ehCandidato" for="field_ehCandidato">Eh Candidato</label>
+            <label class="control-label" for="field_ehCandidato">Eh Candidato</label>
             <input type="checkbox" class="form-control" name="ehCandidato" id="field_ehCandidato"
                     ng-model="vm.aluno.ehCandidato"
                      />
             <div ng-show="editForm.ehCandidato.$invalid">
                 <p class="help-block"
-                    ng-show="editForm.ehCandidato.$error.required" data-translate="entity.validation.required">
+                    ng-show="editForm.ehCandidato.$error.required">
                     This field is required.
                 </p>
             </div>
         </div>
 
         <div class="form-group">
-            <label data-translate="pesquisaalfaApp.aluno.usuario" for="field_usuario">Usuario</label>
+            <label for="field_usuario">Usuario</label>
             <select class="form-control" id="field_usuario" name="usuario" ng-model="vm.aluno.usuario" ng-options="usuario as usuario.id for usuario in vm.usuarios | orderBy:'id' track by usuario.id" required>
                 <option value=""></option>
             </select>
         </div>
         <div ng-show="editForm.usuario.$invalid">
             <p class="help-block"
-                ng-show="editForm.usuario.$error.required" data-translate="entity.validation.required">
+                ng-show="editForm.usuario.$error.required">
                 This field is required.
             </p>
         </div>
         <div class="form-group">
-            <label data-translate="pesquisaalfaApp.aluno.orientador" for="field_orientador">Orientador</label>
+            <label for="field_orientador">Orientador</label>
             <select class="form-control" id="field_orientador" name="orientador" ng-model="vm.aluno.orientador" ng-options="orientador as orientador.id for orientador in vm.orientadors track by orientador.id">
                 <option value=""></option>
             </select>
@@ -69,10 +69,10 @@
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
-            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
         </button>
         <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
-            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
         </button>
     </div>
 </form>

@@ -1,10 +1,10 @@
 
 <div>
-    <h2><span data-translate="pesquisaalfaApp.orientador.detail.title">Orientador</span> {{vm.orientador.id}}</h2>
+    <h2><span>Orientador</span> {{vm.orientador.id}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="dl-horizontal jh-entity-details">
-        <dt><span data-translate="pesquisaalfaApp.orientador.professor">Professor</span></dt>
+        <dt><span>Professor</span></dt>
         <dd>
             <a ui-sref="professor-detail({id:vm.orientador.professor.id})">{{vm.orientador.professor.id}}</a>
         </dd>
@@ -13,11 +13,11 @@
     <button type="submit"
             ui-sref="{{ vm.previousState }}"
             class="btn btn-info">
-        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
     </button>
 
     <button type="button" ui-sref="orientador-detail.edit({id:vm.orientador.id})" class="btn btn-primary">
         <span class="glyphicon glyphicon-pencil"></span>
-        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
     </button>
 </div>

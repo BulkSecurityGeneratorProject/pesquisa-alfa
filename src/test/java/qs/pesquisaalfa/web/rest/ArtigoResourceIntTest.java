@@ -24,8 +24,6 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -43,9 +41,6 @@ public class ArtigoResourceIntTest {
 
     private static final String DEFAULT_TITULO = "AAA";
     private static final String UPDATED_TITULO = "BBB";
-
-    private static final LocalDate DEFAULT_DATA_APRESENTACAO = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_DATA_APRESENTACAO = LocalDate.now(ZoneId.systemDefault());
 
     @Inject
     private ArtigoRepository artigoRepository;
@@ -81,8 +76,7 @@ public class ArtigoResourceIntTest {
      */
     public static Artigo createEntity(EntityManager em) {
         Artigo artigo = new Artigo()
-                .titulo(DEFAULT_TITULO)
-                .dataApresentacao(DEFAULT_DATA_APRESENTACAO);
+                .titulo(DEFAULT_TITULO);
         // Add required entity
         Aluno alunos = AlunoResourceIntTest.createEntity(em);
         em.persist(alunos);
@@ -113,7 +107,6 @@ public class ArtigoResourceIntTest {
         assertThat(artigos).hasSize(databaseSizeBeforeCreate + 1);
         Artigo testArtigo = artigos.get(artigos.size() - 1);
         assertThat(testArtigo.getTitulo()).isEqualTo(DEFAULT_TITULO);
-        assertThat(testArtigo.getDataApresentacao()).isEqualTo(DEFAULT_DATA_APRESENTACAO);
     }
 
     @Test
@@ -122,24 +115,6 @@ public class ArtigoResourceIntTest {
         int databaseSizeBeforeTest = artigoRepository.findAll().size();
         // set the field null
         artigo.setTitulo(null);
-
-        // Create the Artigo, which fails.
-
-        restArtigoMockMvc.perform(post("/api/artigos")
-                .contentType(TestUtil.APPLICATION_JSON_UTF8)
-                .content(TestUtil.convertObjectToJsonBytes(artigo)))
-                .andExpect(status().isBadRequest());
-
-        List<Artigo> artigos = artigoRepository.findAll();
-        assertThat(artigos).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
-    public void checkDataApresentacaoIsRequired() throws Exception {
-        int databaseSizeBeforeTest = artigoRepository.findAll().size();
-        // set the field null
-        artigo.setDataApresentacao(null);
 
         // Create the Artigo, which fails.
 
@@ -163,8 +138,7 @@ public class ArtigoResourceIntTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(artigo.getId().intValue())))
-                .andExpect(jsonPath("$.[*].titulo").value(hasItem(DEFAULT_TITULO.toString())))
-                .andExpect(jsonPath("$.[*].dataApresentacao").value(hasItem(DEFAULT_DATA_APRESENTACAO.toString())));
+                .andExpect(jsonPath("$.[*].titulo").value(hasItem(DEFAULT_TITULO.toString())));
     }
 
     @Test
@@ -178,8 +152,7 @@ public class ArtigoResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(artigo.getId().intValue()))
-            .andExpect(jsonPath("$.titulo").value(DEFAULT_TITULO.toString()))
-            .andExpect(jsonPath("$.dataApresentacao").value(DEFAULT_DATA_APRESENTACAO.toString()));
+            .andExpect(jsonPath("$.titulo").value(DEFAULT_TITULO.toString()));
     }
 
     @Test
@@ -200,8 +173,7 @@ public class ArtigoResourceIntTest {
         // Update the artigo
         Artigo updatedArtigo = artigoRepository.findOne(artigo.getId());
         updatedArtigo
-                .titulo(UPDATED_TITULO)
-                .dataApresentacao(UPDATED_DATA_APRESENTACAO);
+                .titulo(UPDATED_TITULO);
 
         restArtigoMockMvc.perform(put("/api/artigos")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -213,7 +185,6 @@ public class ArtigoResourceIntTest {
         assertThat(artigos).hasSize(databaseSizeBeforeUpdate);
         Artigo testArtigo = artigos.get(artigos.size() - 1);
         assertThat(testArtigo.getTitulo()).isEqualTo(UPDATED_TITULO);
-        assertThat(testArtigo.getDataApresentacao()).isEqualTo(UPDATED_DATA_APRESENTACAO);
     }
 
     @Test

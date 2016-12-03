@@ -1,12 +1,12 @@
 <div>
-    <h2 data-translate="pesquisaalfaApp.proposta.home.title">Propostas</h2>
+    <h2>Propostas</h2>
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-4 no-padding-left">
                 <button class="btn btn-primary" ui-sref="proposta.new" >
                     <span class="glyphicon glyphicon-plus"></span>
-                    <span  data-translate="pesquisaalfaApp.proposta.home.createLabel">
+                    <span >
                         Create new Proposta
                     </span>
                 </button>
@@ -18,12 +18,12 @@
         <table class="jh-table table table-striped">
             <thead>
                 <tr>
-                    <th><span data-translate="global.field.id">ID</span></th>
-                    <th><span data-translate="pesquisaalfaApp.proposta.propostaAceita">Proposta Aceita</span></th>
-                    <th><span data-translate="pesquisaalfaApp.proposta.teseAceita">Tese Aceita</span></th>
-                    <th><span data-translate="pesquisaalfaApp.proposta.tema">Tema</span></th>
-                    <th><span data-translate="pesquisaalfaApp.proposta.aluno">Aluno</span></th>
-                    <th><span data-translate="pesquisaalfaApp.proposta.orientador">Orientador</span></th>
+                    <th><span>ID</span></th>
+                    <th><span>Proposta Aceita</span></th>
+                    <th><span>Tese Aceita</span></th>
+                    <th><span>Tema</span></th>
+                    <th><span>Aluno</span></th>
+                    <th><span>Orientador</span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -45,19 +45,19 @@
                                     ui-sref="proposta-detail({id:proposta.id})"
                                     class="btn btn-info btn-sm">
                                 <span class="glyphicon glyphicon-eye-open"></span>
-                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
+                                <span class="hidden-xs hidden-sm"></span>
                             </button>
                             <button type="submit"
                                     ui-sref="proposta.edit({id:proposta.id})"
                                     class="btn btn-primary btn-sm">
                                 <span class="glyphicon glyphicon-pencil"></span>
-                                <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
+                                <span class="hidden-xs hidden-sm"></span>
                             </button>
                             <button type="submit"
                                     ui-sref="proposta.delete({id:proposta.id})"
                                     class="btn btn-danger btn-sm">
                                 <span class="glyphicon glyphicon-remove-circle"></span>
-                                <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
+                                <span class="hidden-xs hidden-sm"></span>
                             </button>
                         </div>
                     </td>

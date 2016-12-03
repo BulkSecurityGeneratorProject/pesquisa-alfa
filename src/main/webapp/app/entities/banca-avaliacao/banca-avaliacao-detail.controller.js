@@ -5,9 +5,9 @@
         .module('pesquisaalfaApp')
         .controller('BancaAvaliacaoDetailController', BancaAvaliacaoDetailController);
 
-    BancaAvaliacaoDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'BancaAvaliacao', 'Proposta', 'Professor'];
+    BancaAvaliacaoDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'BancaAvaliacao', 'Professor'];
 
-    function BancaAvaliacaoDetailController($scope, $rootScope, $stateParams, previousState, entity, BancaAvaliacao, Proposta, Professor) {
+    function BancaAvaliacaoDetailController($scope, $rootScope, $stateParams, previousState, entity, BancaAvaliacao, Professor) {
         var vm = this;
 
         vm.bancaAvaliacao = entity;
