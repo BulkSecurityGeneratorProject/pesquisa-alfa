@@ -1,5 +1,6 @@
 <div>
     <jhi-alert></jhi-alert>
+<!--
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-4 no-padding-left">
@@ -13,7 +14,8 @@
         </div>
     </div>
     <br/>
-    <h2>Lista de Reuniões</h2>
+-->
+    <h2>Reuniões Solicitadas</h2>
     <div class="table-responsive">
         <table class="jh-table table table-striped">
             <thead>
@@ -43,23 +45,25 @@
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"
-                                    ui-sref="reuniao-detail({id:reuniao.id})"
+                                    ui-sref="uc11-detail({id:reuniao.id})"
                                     class="btn btn-info btn-sm">
                                 <span class="glyphicon glyphicon-eye-open"></span>
                                 <span class="hidden-xs hidden-sm"></span>
                             </button>
                             <button type="submit"
-                                    ui-sref="reuniao.edit({id:reuniao.id})"
+                                    ui-sref="uc11.edit({id:reuniao.id})"
                                     class="btn btn-primary btn-sm">
                                 <span class="glyphicon glyphicon-pencil"></span>
                                 <span class="hidden-xs hidden-sm"></span>
                             </button>
+                            <!--
                             <button type="submit"
-                                    ui-sref="reuniao.delete({id:reuniao.id})"
+                                    ui-sref="uc11.delete({id:reuniao.id})"
                                     class="btn btn-danger btn-sm">
                                 <span class="glyphicon glyphicon-remove-circle"></span>
                                 <span class="hidden-xs hidden-sm"></span>
                             </button>
+                            -->
                         </div>
                     </td>
                 </tr>

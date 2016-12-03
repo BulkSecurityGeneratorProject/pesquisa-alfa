@@ -14,7 +14,7 @@
             url: '/uc11',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'Reuniaos'
+                pageTitle: 'Gerenciar Reuniões'
             },
             views: {
                 'content@': {
@@ -26,16 +26,16 @@
             resolve: {
             }
         })
-/*        .state('reuniao-detail', {
-            parent: 'entity',
-            url: '/reuniao/{id}',
+        .state('uc11-detail', {
+            parent: 'useCases',
+            url: '/uc11/{id}',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'Reuniao'
+                pageTitle: 'Detalhes das reuniões'
             },
             views: {
                 'content@': {
-                    templateUrl: 'app/entities/reuniao/reuniao-detail.html',
+                    templateUrl: 'app/useCases/uc11/uc11-detail.html',
                     controller: 'ReuniaoDetailController',
                     controllerAs: 'vm'
                 }
@@ -46,7 +46,7 @@
                 }],
                 previousState: ["$state", function ($state) {
                     var currentStateData = {
-                        name: $state.current.name || 'reuniao',
+                        name: $state.current.name || 'uc11',
                         params: $state.params,
                         url: $state.href($state.current.name, $state.params)
                     };
@@ -54,15 +54,15 @@
                 }]
             }
         })
-        .state('reuniao-detail.edit', {
-            parent: 'reuniao-detail',
+        .state('uc11-detail.edit', {
+            parent: 'uc11-detail',
             url: '/detail/edit',
             data: {
                 authorities: ['ROLE_USER']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/entities/reuniao/reuniao-dialog.html',
+                    templateUrl: 'app/useCases/uc11/uc11-dialog.html',
                     controller: 'ReuniaoDialogController',
                     controllerAs: 'vm',
                     backdrop: 'static',
@@ -78,7 +78,7 @@
                     $state.go('^');
                 });
             }]
-        })*/
+        })/*
         .state('uc11.new', {
             parent: 'uc11',
             url: '/new',
@@ -108,16 +108,16 @@
                     $state.go('uc11');
                 });
             }]
-        })/*
-        .state('reuniao.edit', {
-            parent: 'reuniao',
+        })*/
+        .state('uc11.edit', {
+            parent: 'uc11',
             url: '/{id}/edit',
             data: {
                 authorities: ['ROLE_USER']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/entities/reuniao/reuniao-dialog.html',
+                    templateUrl: 'app/useCases/uc11/uc11-dialog.html',
                     controller: 'ReuniaoDialogController',
                     controllerAs: 'vm',
                     backdrop: 'static',
@@ -128,12 +128,12 @@
                         }]
                     }
                 }).result.then(function() {
-                    $state.go('reuniao', null, { reload: 'reuniao' });
+                    $state.go('uc11', null, { reload: 'uc11' });
                 }, function() {
                     $state.go('^');
                 });
             }]
-        })
+        })/*
         .state('reuniao.delete', {
             parent: 'reuniao',
             url: '/{id}/delete',
