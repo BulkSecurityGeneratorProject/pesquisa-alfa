@@ -353,7 +353,9 @@ ui bootstrap tweaks
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus{
     background-color:#661926;
 }
-
+.navbar-default .navbar-brand{
+    color:white;
+}
 .dropdown-menu{
     background-color:#872232;
 }
