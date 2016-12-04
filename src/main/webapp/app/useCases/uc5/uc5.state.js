@@ -13,7 +13,7 @@
             parent: 'useCases',
             url: '/uc5',
             data: {
-                authorities: ['ROLE_USER'],
+                authorities: ['ROLE_ALUNO'],
                 pageTitle: 'Reuniaos'
             },
             views: {
@@ -83,7 +83,7 @@
             parent: 'uc5',
             url: '/new',
             data: {
-                authorities: ['ROLE_USER']
+                authorities: ['ROLE_ALUNO']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({

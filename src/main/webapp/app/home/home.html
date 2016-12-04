@@ -4,20 +4,27 @@
             <span class="minerva img-responsive img-rounded"></span>
         </div>
         <div class="col-md-8">
-            <h1>Welcome!</h1>
-            <p class="lead">This is your homepage</p>
+            <h1>Bem-vindo!</h1>
+            <p class="lead">Este é o sistema de auxílio a pesquisa da COPPE/UFRJ.</p>
 
             <div ng-switch="vm.isAuthenticated()">
                 <div class="alert alert-success" ng-switch-when="true">
-                    You are logged in as user "{{vm.account.login}}".
+                    Bem-vindo, {{vm.account.login}}.
                 </div>
 
                 <div class="alert alert-warning" ng-switch-when="false">
-                    If you want to <a class="alert-link" href="" ng-click="vm.login()">sign in</a>, you can try the default accounts:<br/>- Administrator (login="admin" and password="admin") <br/>- User (login="user" and password="user").
+                    Se quiser <a class="alert-link" href="" ng-click="vm.login()">entrar</a>, use uma das contas padrão:
+                    <br/>- Administrator (login="admin" and password="admin") 
+                    <br/>- User (login="user" and password="user").
+                    <br/>- Aluno (login="aluno" and password="aluno").
+                    <br/>- Professor (login="professor" and password="professor").
+                    <br/>- Orientador (login="orientador" and password="orientador").
+                    <br/>- Secretaria (login="secretaria" and password="secretaria").
+
                 </div>
 
                 <div class="alert alert-warning" ng-switch-when="false">
-                    You don't have an account yet? <a class="alert-link" ui-sref="register">Register a new account</a>
+                    Se deseja criar uma conta, <a class="alert-link" ui-sref="register">registre-se.</a>
                 </div>
             </div>
 <!--
