@@ -9,7 +9,7 @@
             </button>
             <a class="navbar-brand logo" href="#/" ng-click="vm.collapseNavbar()">
                 <img class="logo-img" src="content/images/logo-minerva.png"/>
-                <span>Pesquisa Alfa</span> <span class="navbar-version">v{{VERSION}}</span>
+                Pesquisa Alfa</span> <span class="navbar-version">v{{VERSION}}</span>
             </a>
         </div>
         <div class="navbar-collapse" uib-collapse="vm.isNavbarCollapsed" ng-switch="vm.isAuthenticated()">
@@ -52,13 +52,13 @@
                         </span>
                     </a>
                     <ul class="dropdown-menu" uib-dropdown-menu>
-                        <li ui-sref-active="active" has-authority="ROLE_ALUNO">
+                        <li ui-sref-active="active" has-any-authority="ROLE_ADMIN,ROLE_ALUNO">
                             <a ui-sref="uc5" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
                                 <span>UC5 - Solicitar Reunião</span>
                             </a>
                         </li>
-                        <li ui-sref-active="active" has-authority="ROLE_PROFESSOR">
+                        <li ui-sref-active="active" has-any-authority="ROLE_ADMIN,ROLE_PROFESSOR">
                             <a ui-sref="uc11" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
                                 <span>UC11- Gerenciar Solicitações</span>

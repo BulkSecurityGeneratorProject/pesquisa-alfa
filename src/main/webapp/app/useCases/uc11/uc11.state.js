@@ -13,7 +13,7 @@
             parent: 'useCases',
             url: '/uc11',
             data: {
-                authorities: ['ROLE_PROFESSOR'],
+                authorities: ['ROLE_PROFESSOR','ROLE_ADMIN'],
                 pageTitle: 'Gerenciar Reuniões'
             },
             views: {
@@ -30,7 +30,7 @@
             parent: 'useCases',
             url: '/uc11/{id}',
             data: {
-                authorities: ['ROLE_PROFESSOR'],
+                authorities: ['ROLE_PROFESSOR','ROLE_ADMIN'],
                 pageTitle: 'Detalhes das reuniões'
             },
             views: {
@@ -58,7 +58,7 @@
             parent: 'uc11-detail',
             url: '/detail/edit',
             data: {
-                authorities: ['ROLE_PROFESSOR']
+                authorities: ['ROLE_PROFESSOR','ROLE_ADMIN']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
@@ -113,7 +113,7 @@
             parent: 'uc11',
             url: '/{id}/edit',
             data: {
-                authorities: ['ROLE_PROFESSOR']
+                authorities: ['ROLE_PROFESSOR','ROLE_ADMIN']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({

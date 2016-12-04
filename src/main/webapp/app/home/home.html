@@ -9,9 +9,9 @@
 
             <div ng-switch="vm.isAuthenticated()">
                 <div class="alert alert-success" ng-switch-when="true">
-                    Bem-vindo, {{vm.account.login}}.
+                    Olá, {{vm.account.login}}.                
                 </div>
-
+                <p>Acesse o menu acima para utilizar o sistema.</p>
                 <div class="alert alert-warning" ng-switch-when="false">
                     Se quiser <a class="alert-link" href="" ng-click="vm.login()">entrar</a>, use uma das contas padrão:
                     <br/>- Administrator (login="admin" and password="admin") 
