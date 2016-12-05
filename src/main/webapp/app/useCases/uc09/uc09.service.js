@@ -7,7 +7,7 @@
     Banca.$inject = ['$resource', 'DateUtils'];
 
     function Banca ($resource, DateUtils) {
-        var resourceUrl =  'api/bancaavaliadora/:id';
+        var resourceUrl =  'api/banca-avaliadora/:id';
 
         return $resource(resourceUrl, {}, {
             'query': { method: 'GET', isArray: true},

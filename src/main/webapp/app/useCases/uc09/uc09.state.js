@@ -33,7 +33,7 @@
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
                     templateUrl: 'app/useCases/uc09/uc09-dialog.html',
-                    controller: '05DialogController',
+                    controller: 'UC09Controller',
                     controllerAs: 'vm',
                     backdrop: 'static',
                     size: 'lg',
