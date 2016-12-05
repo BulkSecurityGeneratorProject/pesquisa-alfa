@@ -1,0 +1,43 @@
+<div>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="uc06.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Novo Artigo
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <h2>Lista de Artigos</h2>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>Título</span></th>
+                    <th><span>Resumo</span></th>
+                    <th><span>Aceito por:</span></th>
+                    <th><span>Apresentações</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="artigo in vm.artigos track by artigo.id">
+                    <td><a ui-sref="artigo-detail({id:artigo.id})">{{artigo.id}}</a></td>
+                    <td>{{artigo.titulo}}</td>
+                    <td>{{artigo.resumo}}</td>
+                    <td>{{artigo.aceito}}</td>
+                    <td>{{artigo.apresentacoes}}</td>
+                    <td>
+                        <a ui-sref="aluno-detail({id:artigo.aluno.id})">{{artigo.aluno.id}}</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

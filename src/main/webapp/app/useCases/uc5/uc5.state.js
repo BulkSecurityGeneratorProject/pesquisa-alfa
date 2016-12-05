@@ -88,7 +88,7 @@
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
                     templateUrl: 'app/useCases/uc5/uc5-dialog.html',
-                    controller: 'ReuniaoDialogController',
+                    controller: 'UC5DialogController',
                     controllerAs: 'vm',
                     backdrop: 'static',
                     size: 'lg',
