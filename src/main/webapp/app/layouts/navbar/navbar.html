@@ -58,6 +58,12 @@
                                 <span>UC5 - Solicitar Reunião</span>
                             </a>
                         </li>
+                        <li ui-sref-active="active" has-any-authority="ROLE_ADMIN,ROLE_SECRETARIA">
+                            <a ui-sref="uc10" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                <span>UC10 e 4 - Cadastrar e Alterar Proposta</span>
+                            </a>
+                        </li>
                         <li ui-sref-active="active" has-any-authority="ROLE_ADMIN,ROLE_PROFESSOR">
                             <a ui-sref="uc11" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
