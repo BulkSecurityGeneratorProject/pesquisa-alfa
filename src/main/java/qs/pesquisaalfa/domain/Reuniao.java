@@ -101,6 +101,9 @@ public class Reuniao implements Serializable {
 
     public void setAluno(Aluno aluno) {
         this.aluno = aluno;
+       System.out.println();
+         System.out.println(aluno.toString());
+       System.out.println();
     }
 
     public Orientador getOrientador() {
@@ -113,7 +116,17 @@ public class Reuniao implements Serializable {
     }
 
     public void setOrientador(Orientador orientador) {
-        this.orientador = orientador;
+       this.orientador = orientador;
+       if (getAluno().getOrientador().getId() == orientador.getId()){
+		System.out.println();
+		System.out.println("\u001B[32m" + "REUNIAO OK! "+"\u001B[0m");
+		System.out.println();       
+	   }
+	  else {
+		System.out.println();
+		System.out.println("\u001B[31m"+"ORIENTADOR "+orientador.getId()+" NAO ORIENTA O ALUNO "+getAluno().getId()+"!"+"\u001B[0m");
+		System.out.println();      
+	  } 
     }
 
     @Override

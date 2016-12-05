@@ -9,86 +9,61 @@
 
     function stateConfig($stateProvider) {
         $stateProvider
-        .state('uc5', {
+        .state('uc10', {
             parent: 'useCases',
-            url: '/uc5',
+            url: '/uc10',
             data: {
-                authorities: ['ROLE_ALUNO','ROLE_ADMIN'],
-                pageTitle: 'Reuniaos'
+                authorities: ['ROLE_SECRETARIA','ROLE_ADMIN'],
+                pageTitle: 'Criar ou alterar propostas'
             },
             views: {
                 'content@': {
-                    templateUrl: 'app/useCases/uc5/uc5.html',
-                    controller: 'UC5Controller',
+                    templateUrl: 'app/useCases/uc10/uc10.html',
+                    controller: 'UC10Controller',
                     controllerAs: 'vm'
                 }
             },
             resolve: {
             }
         })
-/*        .state('reuniao-detail', {
+/*        .state('proposta-detail', {
             parent: 'entity',
-            url: '/reuniao/{id}',
+            url: '/proposta/{id}',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'Reuniao'
+                pageTitle: 'Proposta'
             },
             views: {
                 'content@': {
-                    templateUrl: 'app/entities/reuniao/reuniao-detail.html',
-                    controller: 'ReuniaoDetailController',
+                    templateUrl: 'app/entities/proposta/proposta-detail.html',
+                    controller: 'PropostaDetailController',
                     controllerAs: 'vm'
                 }
             },
             resolve: {
-                entity: ['$stateParams', 'Reuniao', function($stateParams, Reuniao) {
-                    return Reuniao.get({id : $stateParams.id}).$promise;
+                entity: ['$stateParams', 'Proposta', function($stateParams, Proposta) {
+                    return Proposta.get({id : $stateParams.id}).$promise;
                 }],
                 previousState: ["$state", function ($state) {
                     var currentStateData = {
-                        name: $state.current.name || 'reuniao',
+                        name: $state.current.name || 'proposta',
                         params: $state.params,
                         url: $state.href($state.current.name, $state.params)
                     };
                     return currentStateData;
                 }]
             }
-        })
-        .state('reuniao-detail.edit', {
-            parent: 'reuniao-detail',
-            url: '/detail/edit',
-            data: {
-                authorities: ['ROLE_USER']
-            },
-            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
-                $uibModal.open({
-                    templateUrl: 'app/entities/reuniao/reuniao-dialog.html',
-                    controller: 'ReuniaoDialogController',
-                    controllerAs: 'vm',
-                    backdrop: 'static',
-                    size: 'lg',
-                    resolve: {
-                        entity: ['Reuniao', function(Reuniao) {
-                            return Reuniao.get({id : $stateParams.id}).$promise;
-                        }]
-                    }
-                }).result.then(function() {
-                    $state.go('^', {}, { reload: false });
-                }, function() {
-                    $state.go('^');
-                });
-            }]
         })*/
-        .state('uc5.new', {
-            parent: 'uc5',
+        .state('uc10.new', {
+            parent: 'uc10',
             url: '/new',
             data: {
-                authorities: ['ROLE_ALUNO','ROLE_ADMIN']
+                authorities: ['ROLE_SECRETARIA','ROLE_ADMIN']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/useCases/uc5/uc5-dialog.html',
-                    controller: 'UC5DialogController',
+                    templateUrl: 'app/useCases/uc10/uc10-dialog.html',
+                    controller: 'PropostaDialogController',
                     controllerAs: 'vm',
                     backdrop: 'static',
                     size: 'lg',
@@ -97,62 +72,62 @@
                             return {
                                 horario: null,
                                 assunto: null,
-                                reuniaoAprovada: null,
+                                propostaAprovada: null,
                                 id: null
                             };
                         }
                     }
                 }).result.then(function() {
-                    $state.go('uc5', null, { reload: 'uc5' });
+                    $state.go('uc10', null, { reload: 'uc10' });
                 }, function() {
-                    $state.go('uc5');
+                    $state.go('uc10');
                 });
             }]
         })/*
-        .state('reuniao.edit', {
-            parent: 'reuniao',
+        .state('proposta.edit', {
+            parent: 'proposta',
             url: '/{id}/edit',
             data: {
                 authorities: ['ROLE_USER']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/entities/reuniao/reuniao-dialog.html',
-                    controller: 'ReuniaoDialogController',
+                    templateUrl: 'app/entities/proposta/proposta-dialog.html',
+                    controller: 'PropostaDialogController',
                     controllerAs: 'vm',
                     backdrop: 'static',
                     size: 'lg',
                     resolve: {
-                        entity: ['Reuniao', function(Reuniao) {
-                            return Reuniao.get({id : $stateParams.id}).$promise;
+                        entity: ['Proposta', function(Proposta) {
+                            return Proposta.get({id : $stateParams.id}).$promise;
                         }]
                     }
                 }).result.then(function() {
-                    $state.go('reuniao', null, { reload: 'reuniao' });
+                    $state.go('proposta', null, { reload: 'proposta' });
                 }, function() {
                     $state.go('^');
                 });
             }]
         })
-        .state('reuniao.delete', {
-            parent: 'reuniao',
+        .state('proposta.delete', {
+            parent: 'proposta',
             url: '/{id}/delete',
             data: {
                 authorities: ['ROLE_USER']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/entities/reuniao/reuniao-delete-dialog.html',
-                    controller: 'ReuniaoDeleteController',
+                    templateUrl: 'app/entities/proposta/proposta-delete-dialog.html',
+                    controller: 'PropostaDeleteController',
                     controllerAs: 'vm',
                     size: 'md',
                     resolve: {
-                        entity: ['Reuniao', function(Reuniao) {
-                            return Reuniao.get({id : $stateParams.id}).$promise;
+                        entity: ['Proposta', function(Proposta) {
+                            return Proposta.get({id : $stateParams.id}).$promise;
                         }]
                     }
                 }).result.then(function() {
-                    $state.go('reuniao', null, { reload: 'reuniao' });
+                    $state.go('proposta', null, { reload: 'proposta' });
                 }, function() {
                     $state.go('^');
                 });
