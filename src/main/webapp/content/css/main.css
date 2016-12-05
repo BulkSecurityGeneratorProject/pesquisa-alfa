@@ -359,9 +359,10 @@ ui bootstrap tweaks
 .dropdown-menu{
     background-color:#872232;
 }
-.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus{
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus,.dropdown-menu > li.active,.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus{
     background-color:#661926;
 }
+
 .footer-link{
     color:#872232;
     margin:0 30px;
