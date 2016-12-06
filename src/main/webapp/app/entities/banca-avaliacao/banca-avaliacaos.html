@@ -1,12 +1,12 @@
 <div>
-    <h2 data-translate="pesquisaalfaApp.bancaAvaliacao.home.title">Banca Avaliacaos</h2>
+    <h2>Banca Avaliacaos</h2>
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-4 no-padding-left">
                 <button class="btn btn-primary" ui-sref="banca-avaliacao.new" >
                     <span class="glyphicon glyphicon-plus"></span>
-                    <span  data-translate="pesquisaalfaApp.bancaAvaliacao.home.createLabel">
+                    <span >
                         Create new Banca Avaliacao
                     </span>
                 </button>
@@ -18,11 +18,10 @@
         <table class="jh-table table table-striped">
             <thead>
                 <tr>
-                    <th><span data-translate="global.field.id">ID</span></th>
-                    <th><span data-translate="pesquisaalfaApp.bancaAvaliacao.dataHoraApresentacao">Data Hora Apresentacao</span></th>
-                    <th><span data-translate="pesquisaalfaApp.bancaAvaliacao.tipoAvaliacao">Tipo Avaliacao</span></th>
-                    <th><span data-translate="pesquisaalfaApp.bancaAvaliacao.proposta">Proposta</span></th>
-                    <th><span data-translate="pesquisaalfaApp.bancaAvaliacao.professores">Professores</span></th>
+                    <th><span>ID</span></th>
+                    <th><span>Data Hora Apresentacao</span></th>
+                    <th><span>Tipo Avaliacao</span></th>
+                    <th><span>Professores</span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -30,10 +29,7 @@
                 <tr ng-repeat="bancaAvaliacao in vm.bancaAvaliacaos track by bancaAvaliacao.id">
                     <td><a ui-sref="banca-avaliacao-detail({id:bancaAvaliacao.id})">{{bancaAvaliacao.id}}</a></td>
                     <td>{{bancaAvaliacao.dataHoraApresentacao | date:'medium'}}</td>
-                    <td data-translate="{{'pesquisaalfaApp.TiposAvaliacao.' + bancaAvaliacao.tipoAvaliacao}}">{{bancaAvaliacao.tipoAvaliacao}}</td>
-                    <td>
-                        <a ui-sref="proposta-detail({id:bancaAvaliacao.proposta.id})">{{bancaAvaliacao.proposta.id}}</a>
-                    </td>
+                    <td>{{bancaAvaliacao.tipoAvaliacao}}</td>
                     <td>
                         <span ng-repeat="professores in bancaAvaliacao.professores">
                             <a class="form-control-static" ui-sref="professor-detail({id: professores.id})">{{professores.id}}</a>{{$last ? '' : ', '}}
@@ -45,19 +41,19 @@
                                     ui-sref="banca-avaliacao-detail({id:bancaAvaliacao.id})"
                                     class="btn btn-info btn-sm">
                                 <span class="glyphicon glyphicon-eye-open"></span>
-                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
+                                <span class="hidden-xs hidden-sm"></span>
                             </button>
                             <button type="submit"
                                     ui-sref="banca-avaliacao.edit({id:bancaAvaliacao.id})"
                                     class="btn btn-primary btn-sm">
                                 <span class="glyphicon glyphicon-pencil"></span>
-                                <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
+                                <span class="hidden-xs hidden-sm"></span>
                             </button>
                             <button type="submit"
                                     ui-sref="banca-avaliacao.delete({id:bancaAvaliacao.id})"
                                     class="btn btn-danger btn-sm">
                                 <span class="glyphicon glyphicon-remove-circle"></span>
-                                <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
+                                <span class="hidden-xs hidden-sm"></span>
                             </button>
                         </div>
                     </td>

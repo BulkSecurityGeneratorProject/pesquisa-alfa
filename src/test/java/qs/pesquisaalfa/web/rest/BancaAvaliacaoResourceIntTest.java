@@ -3,7 +3,6 @@ package qs.pesquisaalfa.web.rest;
 import qs.pesquisaalfa.PesquisaalfaApp;
 
 import qs.pesquisaalfa.domain.BancaAvaliacao;
-import qs.pesquisaalfa.domain.Proposta;
 import qs.pesquisaalfa.domain.Professor;
 import qs.pesquisaalfa.repository.BancaAvaliacaoRepository;
 
@@ -88,11 +87,6 @@ public class BancaAvaliacaoResourceIntTest {
         BancaAvaliacao bancaAvaliacao = new BancaAvaliacao()
                 .dataHoraApresentacao(DEFAULT_DATA_HORA_APRESENTACAO)
                 .tipoAvaliacao(DEFAULT_TIPO_AVALIACAO);
-        // Add required entity
-        Proposta proposta = PropostaResourceIntTest.createEntity(em);
-        em.persist(proposta);
-        em.flush();
-        bancaAvaliacao.setProposta(proposta);
         // Add required entity
         Professor professores = ProfessorResourceIntTest.createEntity(em);
         em.persist(professores);

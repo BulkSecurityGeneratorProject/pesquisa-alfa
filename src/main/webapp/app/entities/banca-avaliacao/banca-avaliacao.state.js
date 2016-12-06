@@ -14,7 +14,7 @@
             url: '/banca-avaliacao',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'pesquisaalfaApp.bancaAvaliacao.home.title'
+                pageTitle: 'BancaAvaliacaos'
             },
             views: {
                 'content@': {
@@ -24,12 +24,6 @@
                 }
             },
             resolve: {
-                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                    $translatePartialLoader.addPart('bancaAvaliacao');
-                    $translatePartialLoader.addPart('tiposAvaliacao');
-                    $translatePartialLoader.addPart('global');
-                    return $translate.refresh();
-                }]
             }
         })
         .state('banca-avaliacao-detail', {
@@ -37,7 +31,7 @@
             url: '/banca-avaliacao/{id}',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'pesquisaalfaApp.bancaAvaliacao.detail.title'
+                pageTitle: 'BancaAvaliacao'
             },
             views: {
                 'content@': {
@@ -47,11 +41,6 @@
                 }
             },
             resolve: {
-                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                    $translatePartialLoader.addPart('bancaAvaliacao');
-                    $translatePartialLoader.addPart('tiposAvaliacao');
-                    return $translate.refresh();
-                }],
                 entity: ['$stateParams', 'BancaAvaliacao', function($stateParams, BancaAvaliacao) {
                     return BancaAvaliacao.get({id : $stateParams.id}).$promise;
                 }],

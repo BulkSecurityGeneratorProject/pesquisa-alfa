@@ -2,15 +2,6 @@
     "fluentMethods": true,
     "relationships": [
         {
-            "relationshipType": "one-to-one",
-            "relationshipValidateRules": "required",
-            "relationshipName": "proposta",
-            "otherEntityName": "proposta",
-            "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "bancaAvaliacao"
-        },
-        {
             "relationshipType": "many-to-many",
             "relationshipValidateRules": "required",
             "otherEntityRelationshipName": "bancasAvaliacao",
@@ -37,7 +28,7 @@
             ]
         }
     ],
-    "changelogDate": "20161126181642",
+    "changelogDate": "20161203141220",
     "entityTableName": "banca_avaliacao",
     "dto": "no",
     "pagination": "no",

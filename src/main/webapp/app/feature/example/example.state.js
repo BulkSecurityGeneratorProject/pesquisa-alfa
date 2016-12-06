@@ -13,7 +13,7 @@
             url: '/example',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'global.menu.feature.example'
+                pageTitle: 'Example'
             },
             views: {
                 'content@': {
@@ -21,12 +21,6 @@
                     controller: 'ExampleController',
                     controllerAs: 'vm'
                 }
-            },
-            resolve: {
-                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                    $translatePartialLoader.addPart('example');
-                    return $translate.refresh();
-                }]
             }
         });
     }

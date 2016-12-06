@@ -4,47 +4,47 @@
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="vm.clear()">&times;</button>
-        <h4 class="modal-title" id="myMestrandoLabel" data-translate="pesquisaalfaApp.mestrando.home.createOrEditLabel">Create or edit a Mestrando</h4>
+        <h4 class="modal-title" id="myMestrandoLabel">Create or edit a Mestrando</h4>
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
         <div class="form-group" ng-show="vm.mestrando.id">
-            <label for="id" data-translate="global.field.id">ID</label>
+            <label for="id">ID</label>
             <input type="text" class="form-control" id="id" name="id"
                     ng-model="vm.mestrando.id" readonly />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="pesquisaalfaApp.mestrando.terminouObrigatorias" for="field_terminouObrigatorias">Terminou Obrigatorias</label>
+            <label class="control-label" for="field_terminouObrigatorias">Terminou Obrigatorias</label>
             <input type="checkbox" class="form-control" name="terminouObrigatorias" id="field_terminouObrigatorias"
                     ng-model="vm.mestrando.terminouObrigatorias"
                      />
             <div ng-show="editForm.terminouObrigatorias.$invalid">
                 <p class="help-block"
-                    ng-show="editForm.terminouObrigatorias.$error.required" data-translate="entity.validation.required">
+                    ng-show="editForm.terminouObrigatorias.$error.required">
                     This field is required.
                 </p>
             </div>
         </div>
 
         <div class="form-group">
-            <label data-translate="pesquisaalfaApp.mestrando.aluno" for="field_aluno">Aluno</label>
+            <label for="field_aluno">Aluno</label>
             <select class="form-control" id="field_aluno" name="aluno" ng-model="vm.mestrando.aluno" ng-options="aluno as aluno.id for aluno in vm.alunos | orderBy:'id' track by aluno.id" required>
                 <option value=""></option>
             </select>
         </div>
         <div ng-show="editForm.aluno.$invalid">
             <p class="help-block"
-                ng-show="editForm.aluno.$error.required" data-translate="entity.validation.required">
+                ng-show="editForm.aluno.$error.required">
                 This field is required.
             </p>
         </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
-            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
         </button>
         <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
-            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
         </button>
     </div>
 </form>

@@ -5,9 +5,9 @@
         .module('pesquisaalfaApp')
         .controller('ExampleController', ExampleController);
 
-    ExampleController.$inject = ['Principal', 'Auth', 'JhiLanguageService', '$translate'];
+    ExampleController.$inject = ['Principal', 'Auth'];
 
-    function ExampleController (Principal, Auth, JhiLanguageService, $translate) {
+    function ExampleController (Principal, Auth) {
         var vm = this;
 
         // controller logic goes here

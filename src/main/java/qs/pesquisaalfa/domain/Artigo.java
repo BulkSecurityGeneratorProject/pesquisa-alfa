@@ -6,7 +6,6 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Objects;
@@ -29,10 +28,6 @@ public class Artigo implements Serializable {
     @Size(min = 3)
     @Column(name = "titulo", nullable = false)
     private String titulo;
-
-    @NotNull
-    @Column(name = "data_apresentacao", nullable = false)
-    private LocalDate dataApresentacao;
 
     @ManyToMany
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
@@ -61,19 +56,6 @@ public class Artigo implements Serializable {
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
-    }
-
-    public LocalDate getDataApresentacao() {
-        return dataApresentacao;
-    }
-
-    public Artigo dataApresentacao(LocalDate dataApresentacao) {
-        this.dataApresentacao = dataApresentacao;
-        return this;
-    }
-
-    public void setDataApresentacao(LocalDate dataApresentacao) {
-        this.dataApresentacao = dataApresentacao;
     }
 
     public Set<Aluno> getAlunos() {
@@ -126,7 +108,6 @@ public class Artigo implements Serializable {
         return "Artigo{" +
             "id=" + id +
             ", titulo='" + titulo + "'" +
-            ", dataApresentacao='" + dataApresentacao + "'" +
             '}';
     }
 }

@@ -104,7 +104,7 @@ public class UserResource {
             request.getContextPath();              // "/myContextPath" or "" if deployed in root context
             mailService.sendCreationEmail(newUser, baseUrl);
             return ResponseEntity.created(new URI("/api/users/" + newUser.getLogin()))
-                .headers(HeaderUtil.createAlert( "userManagement.created", newUser.getLogin()))
+                .headers(HeaderUtil.createAlert( "A user is created with identifier " + newUser.getLogin(), newUser.getLogin()))
                 .body(newUser);
         }
     }
@@ -135,7 +135,7 @@ public class UserResource {
             managedUserVM.getLangKey(), managedUserVM.getAuthorities());
 
         return ResponseEntity.ok()
-            .headers(HeaderUtil.createAlert("userManagement.updated", managedUserVM.getLogin()))
+            .headers(HeaderUtil.createAlert("A user is updated with identifier " + managedUserVM.getLogin(), managedUserVM.getLogin()))
             .body(new ManagedUserVM(userService.getUserWithAuthorities(managedUserVM.getId())));
     }
 
@@ -186,6 +186,6 @@ public class UserResource {
     public ResponseEntity<Void> deleteUser(@PathVariable String login) {
         log.debug("REST request to delete User: {}", login);
         userService.deleteUser(login);
-        return ResponseEntity.ok().headers(HeaderUtil.createAlert( "userManagement.deleted", login)).build();
+        return ResponseEntity.ok().headers(HeaderUtil.createAlert( "A user is deleted with identifier " + login, login)).build();
     }
 }

@@ -5,9 +5,9 @@
         .module('pesquisaalfaApp')
         .controller('BancaAvaliacaoDialogController', BancaAvaliacaoDialogController);
 
-    BancaAvaliacaoDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'BancaAvaliacao', 'Proposta', 'Professor'];
+    BancaAvaliacaoDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'BancaAvaliacao', 'Professor'];
 
-    function BancaAvaliacaoDialogController ($timeout, $scope, $stateParams, $uibModalInstance, $q, entity, BancaAvaliacao, Proposta, Professor) {
+    function BancaAvaliacaoDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, BancaAvaliacao, Professor) {
         var vm = this;
 
         vm.bancaAvaliacao = entity;
@@ -15,15 +15,6 @@
         vm.datePickerOpenStatus = {};
         vm.openCalendar = openCalendar;
         vm.save = save;
-        vm.propostas = Proposta.query({filter: 'bancaavaliacao-is-null'});
-        $q.all([vm.bancaAvaliacao.$promise, vm.propostas.$promise]).then(function() {
-            if (!vm.bancaAvaliacao.proposta || !vm.bancaAvaliacao.proposta.id) {
-                return $q.reject();
-            }
-            return Proposta.get({id : vm.bancaAvaliacao.proposta.id}).$promise;
-        }).then(function(proposta) {
-            vm.propostas.push(proposta);
-        });
         vm.professors = Professor.query();
 
         $timeout(function (){

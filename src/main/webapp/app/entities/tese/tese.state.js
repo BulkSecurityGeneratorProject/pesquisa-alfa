@@ -14,7 +14,7 @@
             url: '/tese',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'pesquisaalfaApp.tese.home.title'
+                pageTitle: 'Tese'
             },
             views: {
                 'content@': {
@@ -24,12 +24,6 @@
                 }
             },
             resolve: {
-                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                    $translatePartialLoader.addPart('tese');
-                    $translatePartialLoader.addPart('conceitoPesquisa');
-                    $translatePartialLoader.addPart('global');
-                    return $translate.refresh();
-                }]
             }
         })
         .state('tese-detail', {
@@ -37,7 +31,7 @@
             url: '/tese/{id}',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'pesquisaalfaApp.tese.detail.title'
+                pageTitle: 'Tese'
             },
             views: {
                 'content@': {
@@ -47,11 +41,6 @@
                 }
             },
             resolve: {
-                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                    $translatePartialLoader.addPart('tese');
-                    $translatePartialLoader.addPart('conceitoPesquisa');
-                    return $translate.refresh();
-                }],
                 entity: ['$stateParams', 'Tese', function($stateParams, Tese) {
                     return Tese.get({id : $stateParams.id}).$promise;
                 }],

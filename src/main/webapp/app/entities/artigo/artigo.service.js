@@ -4,9 +4,9 @@
         .module('pesquisaalfaApp')
         .factory('Artigo', Artigo);
 
-    Artigo.$inject = ['$resource', 'DateUtils'];
+    Artigo.$inject = ['$resource'];
 
-    function Artigo ($resource, DateUtils) {
+    function Artigo ($resource) {
         var resourceUrl =  'api/artigos/:id';
 
         return $resource(resourceUrl, {}, {
@@ -16,27 +16,11 @@
                 transformResponse: function (data) {
                     if (data) {
                         data = angular.fromJson(data);
-                        data.dataApresentacao = DateUtils.convertLocalDateFromServer(data.dataApresentacao);
                     }
                     return data;
                 }
             },
-            'update': {
-                method: 'PUT',
-                transformRequest: function (data) {
-                    var copy = angular.copy(data);
-                    copy.dataApresentacao = DateUtils.convertLocalDateToServer(copy.dataApresentacao);
-                    return angular.toJson(copy);
-                }
-            },
-            'save': {
-                method: 'POST',
-                transformRequest: function (data) {
-                    var copy = angular.copy(data);
-                    copy.dataApresentacao = DateUtils.convertLocalDateToServer(copy.dataApresentacao);
-                    return angular.toJson(copy);
-                }
-            }
+            'update': { method:'PUT' }
         });
     }
 })();

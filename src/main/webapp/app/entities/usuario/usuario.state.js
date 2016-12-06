@@ -14,7 +14,7 @@
             url: '/usuario',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'pesquisaalfaApp.usuario.home.title'
+                pageTitle: 'Usuarios'
             },
             views: {
                 'content@': {
@@ -24,11 +24,6 @@
                 }
             },
             resolve: {
-                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                    $translatePartialLoader.addPart('usuario');
-                    $translatePartialLoader.addPart('global');
-                    return $translate.refresh();
-                }]
             }
         })
         .state('usuario-detail', {
@@ -36,7 +31,7 @@
             url: '/usuario/{id}',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'pesquisaalfaApp.usuario.detail.title'
+                pageTitle: 'Usuario'
             },
             views: {
                 'content@': {
@@ -46,10 +41,6 @@
                 }
             },
             resolve: {
-                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                    $translatePartialLoader.addPart('usuario');
-                    return $translate.refresh();
-                }],
                 entity: ['$stateParams', 'Usuario', function($stateParams, Usuario) {
                     return Usuario.get({id : $stateParams.id}).$promise;
                 }],

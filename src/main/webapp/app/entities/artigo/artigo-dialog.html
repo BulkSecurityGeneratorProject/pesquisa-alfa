@@ -4,65 +4,49 @@
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="vm.clear()">&times;</button>
-        <h4 class="modal-title" id="myArtigoLabel" data-translate="pesquisaalfaApp.artigo.home.createOrEditLabel">Create or edit a Artigo</h4>
+        <h4 class="modal-title" id="myArtigoLabel">Create or edit a Artigo</h4>
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
         <div class="form-group" ng-show="vm.artigo.id">
-            <label for="id" data-translate="global.field.id">ID</label>
+            <label for="id">ID</label>
             <input type="text" class="form-control" id="id" name="id"
                     ng-model="vm.artigo.id" readonly />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="pesquisaalfaApp.artigo.titulo" for="field_titulo">Titulo</label>
+            <label class="control-label" for="field_titulo">Titulo</label>
             <input type="text" class="form-control" name="titulo" id="field_titulo"
                     ng-model="vm.artigo.titulo"
                     required ng-minlength="3" />
             <div ng-show="editForm.titulo.$invalid">
                 <p class="help-block"
-                    ng-show="editForm.titulo.$error.required" data-translate="entity.validation.required">
+                    ng-show="editForm.titulo.$error.required">
                     This field is required.
                 </p>
                 <p class="help-block"
-                    ng-show="editForm.titulo.$error.minlength" data-translate="entity.validation.minlength" translate-value-min="3">
+                    ng-show="editForm.titulo.$error.minlength" translate-value-min="3">
                     This field is required to be at least 3 characters.
-                </p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label" data-translate="pesquisaalfaApp.artigo.dataApresentacao" for="field_dataApresentacao">Data Apresentacao</label>
-                <div class="input-group">
-                    <input id="field_dataApresentacao" type="text" class="form-control" name="dataApresentacao" uib-datepicker-popup="{{dateformat}}" ng-model="vm.artigo.dataApresentacao" is-open="vm.datePickerOpenStatus.dataApresentacao"
-                    required/>
-                    <span class="input-group-btn">
-                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('dataApresentacao')"><i class="glyphicon glyphicon-calendar"></i></button>
-                    </span>
-                </div>
-            <div ng-show="editForm.dataApresentacao.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.dataApresentacao.$error.required" data-translate="entity.validation.required">
-                    This field is required.
                 </p>
             </div>
         </div>
 
         <div class="form-group">
-            <label data-translate="pesquisaalfaApp.artigo.alunos" for="field_alunos">Alunos</label>
+            <label for="field_alunos">Alunos</label>
             <select class="form-control" id="field_alunos" multiple name="alunos" ng-model="vm.artigo.alunos" ng-options="aluno as aluno.id for aluno in vm.alunos track by aluno.id" required></select>
         </div>
         <div ng-show="editForm.alunos.$invalid">
             <p class="help-block"
-                ng-show="editForm.alunos.$error.required" data-translate="entity.validation.required">
+                ng-show="editForm.alunos.$error.required">
                 This field is required.
             </p>
         </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
-            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
         </button>
         <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
-            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
         </button>
     </div>
 </form>

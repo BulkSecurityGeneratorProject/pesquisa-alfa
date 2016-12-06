@@ -12,8 +12,6 @@
 
         vm.artigo = entity;
         vm.clear = clear;
-        vm.datePickerOpenStatus = {};
-        vm.openCalendar = openCalendar;
         vm.save = save;
         vm.alunos = Aluno.query();
 
@@ -44,10 +42,6 @@
             vm.isSaving = false;
         }
 
-        vm.datePickerOpenStatus.dataApresentacao = false;
 
-        function openCalendar (date) {
-            vm.datePickerOpenStatus[date] = true;
-        }
     }
 })();
